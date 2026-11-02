@@ -47,7 +47,9 @@ body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);f
 a{color:inherit}
 img{max-width:100%;display:block}
 h1,h2,h3{font-family:var(--display);font-weight:800;letter-spacing:-0.02em;line-height:1.1;margin:0;text-wrap:balance}
-p,li{text-wrap:pretty}
+p,li,figcaption,summary{text-wrap:balance}
+.about p,.card details p{text-wrap:pretty}
+.nb{white-space:nowrap}
 .w{max-width:1240px;margin:0 auto;padding:0 var(--gutter)}
 .dark{background:var(--ink);color:var(--paper)}
 .kicker{font-family:var(--mono);font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin:0 0 16px}
@@ -190,7 +192,7 @@ footer .w{padding-top:24px;padding-bottom:24px;font-size:13px;color:#A3A8AE}
     <div>
       <p class="kicker">Games producer · remote, worldwide</p>
       <h1>Make your launch date real.</h1>
-      <p class="sub">Senior production help sized for your team and your budget. I’ve led Thief VR from pitch to vertical slice, led the PC version of Forza Motorsport (2023) with Turn 10, and run three titles at once at 22cans. I start by assessing where your project really is, then help you through the next milestone, the publisher deal or launch.</p>
+      <p class="sub">Senior production help sized for your team and your budget. I’ve led Thief VR from pitch to vertical slice, led the PC version of Forza Motorsport (2023) with Turn 10, and run three titles at once at 22cans. I start by assessing where your project really is, then help you through the next milestone, the publisher deal or launch.</p>
       <div class="ctas">
         <a class="btn btn-main" href="#offers">See offers and prices</a>
         <a class="btn btn-line" href="#contact">Free 20-minute triage</a>
@@ -198,8 +200,8 @@ footer .w{padding-top:24px;padding-bottom:24px;font-size:13px;color:#A3A8AE}
       <p class="small">Based in Bucharest, working remotely with teams worldwide. Invoiced in EUR through an EU company.</p>
     </div>
     <figure>
-      <img src="img/thief-vr.jpg" alt="Thief VR: Legacy of Shadow key art">
-      <figcaption><strong>Lead Producer</strong> · Thief VR: Legacy of Shadow, Maze Theory</figcaption>
+      <img src="img/thief-vr.jpg" alt="Thief VR: Legacy of Shadow key art">
+      <figcaption><strong>Lead Producer</strong> · Thief VR: Legacy of Shadow, Maze Theory</figcaption>
     </figure>
   </section>
 </div>
@@ -207,7 +209,7 @@ footer .w{padding-top:24px;padding-bottom:24px;font-size:13px;color:#A3A8AE}
 <section class="strip" aria-label="Studios">
   <div class="w">
     <span class="label">Worked with</span>
-    <span>Sumo Digital</span><span>Turn 10</span><span>Maze Theory</span><span>22cans</span><span>Preloaded</span><span>UNIT9</span>
+    <span>Sumo Digital</span><span>Turn 10</span><span>Maze Theory</span><span>22cans</span><span>Preloaded</span><span>UNIT9</span>
   </div>
 </section>
 
@@ -305,12 +307,12 @@ footer .w{padding-top:24px;padding-bottom:24px;font-size:13px;color:#A3A8AE}
   <div class="work">
 
     <article class="card">
-      <div class="pic"><img src="img/thief-vr.jpg" alt="Thief VR: Legacy of Shadow"></div>
-      <p class="meta">Maze Theory · Lead Producer · 2023 to 2024</p>
-      <h3>Thief VR: Legacy of Shadow</h3>
+      <div class="pic"><img src="img/thief-vr.jpg" alt="Thief VR: Legacy of Shadow"></div>
+      <p class="meta">Maze Theory · Lead Producer · 2023 to 2024</p>
+      <h3>Thief VR: Legacy of Shadow</h3>
       <p class="hook">Pitch to vertical slice for a much-loved franchise, brought back in VR.</p>
       <details><summary>Full story</summary>
-        <p>Quest, PS VR2 and Steam, published by Vertigo Games with Eidos-Montréal, shipped December 2025.</p>
+        <p>Quest, PS VR2 and Steam, published by Vertigo Games with <span class="nb">Eidos-Montréal</span>, shipped December 2025.</p>
         <p><b>What I did:</b> led 30+ developers and five department leads from pitch through contract to vertical slice. Set vision pillars with the directors, rebuilt the level design pipeline, embedded licensor reviews in milestone planning, and set up outsourcing with Eastern European partners.</p>
         <p><b>Outcome:</b> milestones on time and on budget. Licensor review cut from two weeks to three days. Feature completion up 15%. Outsourcing 30% cheaper at the same quality.</p>
         <p><a href="https://youtu.be/xrtbCcnZEhQ">Watch the trailer</a></p>
@@ -318,12 +320,12 @@ footer .w{padding-top:24px;padding-bottom:24px;font-size:13px;color:#A3A8AE}
     </article>
 
     <article class="card">
-      <div class="pic"><img src="img/forza-motorsport.jpg" alt="Forza Motorsport (2023)"></div>
-      <p class="meta">Sumo Digital with Turn 10 · Senior Producer · 2021 to 2023</p>
-      <h3>Forza Motorsport (2023)</h3>
+      <div class="pic"><img src="img/forza-motorsport.jpg" alt="Forza Motorsport (2023)"></div>
+      <p class="meta">Sumo Digital with Turn 10 · Senior Producer · 2021 to 2023</p>
+      <h3>Forza Motorsport (2023)</h3>
       <p class="hook">Led the PC version of Xbox’s flagship racing sim.</p>
       <details><summary>Full story</summary>
-        <p><b>What I did:</b> led the PC workstream with Turn 10 (performance targets, platform features, Steam integration) and overhauled the branching strategy, halving build verification time.</p>
+        <p><b>What I did:</b> led the PC workstream with Turn 10 (performance targets, platform features, Steam integration) and overhauled the branching strategy, halving build verification time.</p>
         <p><b>Outcome:</b> PC delivered ahead of schedule, which freed the team to help on console features.</p>
         <p><a href="https://youtu.be/em4gv1Ietko">Watch the trailer</a></p>
       </details>
@@ -331,7 +333,7 @@ footer .w{padding-top:24px;padding-bottom:24px;font-size:13px;color:#A3A8AE}
 
     <article class="card">
       <div class="pic"><img src="img/peaky-blinders.jpg" alt="Peaky Blinders: The King’s Ransom"></div>
-      <p class="meta">Maze Theory · Lead Producer · 2023</p>
+      <p class="meta">Maze Theory · Lead Producer · 2023</p>
       <h3>Peaky Blinders: The King’s Ransom</h3>
       <p class="hook">A major TV licence through console certification.</p>
       <details><summary>Full story</summary>
@@ -342,9 +344,9 @@ footer .w{padding-top:24px;padding-bottom:24px;font-size:13px;color:#A3A8AE}
     </article>
 
     <article class="card">
-      <div class="pic"><img src="img/human-fall-flat.jpg" alt="Human: Fall Flat"></div>
-      <p class="meta">Sumo Digital · Senior Producer · 2021 to 2023</p>
-      <h3>Human: Fall Flat DLC</h3>
+      <div class="pic"><img src="img/human-fall-flat.jpg" alt="Human: Fall Flat"></div>
+      <p class="meta">Sumo Digital · Senior Producer · 2021 to 2023</p>
+      <h3>Human: Fall Flat DLC</h3>
       <p class="hook">Two paid level packs for a long-running co-op hit.</p>
       <details><summary>Full story</summary>
         <p><b>What I did:</b> produced the Laboratory and Lumber packs end to end, coordinating design, art and QA through parallel console and PC certification.</p>
@@ -366,9 +368,9 @@ footer .w{padding-top:24px;padding-bottom:24px;font-size:13px;color:#A3A8AE}
     </article>
 
     <article class="card">
-      <div class="pic"><img src="img/storm-vr.jpg" alt="Storm VR"></div>
+      <div class="pic"><img src="img/storm-vr.jpg" alt="Storm VR"></div>
       <p class="meta">UNIT9 · VR Project Manager · 2016 to 2017</p>
-      <h3>Storm VR</h3>
+      <h3>Storm VR</h3>
       <p class="hook">Pitched internally, shipped as the studio’s first commercial VR game.</p>
       <details><summary>Full story</summary>
         <p><b>What I did:</b> ran a 15-person team through design, an engine move from Unity to Unreal, playtests, storefront submission and go-to-market.</p>
@@ -379,7 +381,7 @@ footer .w{padding-top:24px;padding-bottom:24px;font-size:13px;color:#A3A8AE}
 
     <article class="card">
       <div class="pic" style="--tint:#2E2445"><span>Ancient Dungeon VR</span></div>
-      <p class="meta">Maze Theory · Lead Producer · 2023</p>
+      <p class="meta">Maze Theory · Lead Producer · 2023</p>
       <h3>Ancient Dungeon VR</h3>
       <p class="hook">PS VR2 launch delivered on time, with two weeks less schedule.</p>
       <details><summary>Full story</summary>
@@ -453,7 +455,7 @@ footer .w{padding-top:24px;padding-bottom:24px;font-size:13px;color:#A3A8AE}
   <div class="grid2">
     <div class="item"><h3>Every credit is public</h3><p>Each project above links to its trailer or published work.</p></div>
     <div class="item"><h3>Your money back</h3><p>Every assessment is guaranteed to tell you something useful about your project, or I refund it. Ongoing help runs month to month.</p></div>
-    <div class="item"><h3>Recognised work</h3><p>Thief VR, published by Vertigo Games with Eidos-Montréal. Forza Motorsport (2023) with Turn 10. Storm VR, Pixel Award People’s Champ 2017.</p></div>
+    <div class="item"><h3>Recognised work</h3><p>Thief VR, published by Vertigo Games with <span class="nb">Eidos-Montréal</span>. Forza Motorsport (2023) with Turn 10. Storm VR, Pixel Award People’s Champ 2017.</p></div>
     <div class="item"><h3>Teams and budgets</h3><p>Teams of up to 40 and budgets up to £4M, across VR, console, PC and mobile.</p></div>
   </div>
 </section>
@@ -495,7 +497,7 @@ footer .w{padding-top:24px;padding-bottom:24px;font-size:13px;color:#A3A8AE}
     <div>
       <p class="kicker">About</p>
       <h2>Hi, I'm Andrej.</h2>
-      <p>Over a decade shipping across VR, console, PC and mobile, at Sumo Digital, Maze Theory, 22cans, Preloaded and UNIT9. I came into production through IT infrastructure and a computer-science-heavy degree, so I plan with a working understanding of what the build takes.</p>
+      <p>Over a decade shipping across VR, console, PC and mobile, at Sumo Digital, Maze Theory, 22cans, Preloaded and UNIT9. I came into production through IT infrastructure and a computer-science-heavy degree, so I plan with a working understanding of what the build takes.</p>
       <p>Through my studio LudoSpark I also run production training for studios and games R&amp;D for clients including Greenpeace. I work in English, Romanian and Italian.</p>
       <blockquote>Most production work happens in the gap between what the plan says and what the build actually is. That gap is where my effort goes.</blockquote>
     </div>
