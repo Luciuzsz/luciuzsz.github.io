@@ -1,0 +1,512 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Andrej Savcic · Games producer for hire, remote worldwide</title>
+<meta name="description" content="Senior games producer for studios and indie teams. Fixed-price project assessments, fractional production and mentoring. Thief VR, Forza Motorsport (2023), 22cans. Remote, worldwide.">
+<link rel="canonical" href="https://ludospark.github.io/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ludospark.github.io/">
+<meta property="og:title" content="Andrej Savcic · Make your launch date real">
+<meta property="og:description" content="Senior production help sized for your team and your budget. Fixed-price assessments, fractional production and mentoring.">
+<meta property="og:image" content="https://ludospark.github.io/img/thief-vr.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Andrej Savcic, games production consulting",
+  "url": "https://ludospark.github.io/",
+  "email": "savcic.andrej@gmail.com",
+  "areaServed": "Worldwide",
+  "founder": {
+    "@type": "Person",
+    "name": "Andrej Savcic",
+    "jobTitle": "Games Producer",
+    "sameAs": ["https://linkedin.com/in/andrej-savcic"]
+  }
+}
+</script>
+<style>
+/* ===== Colours and fonts: change them here ===== */
+:root{
+  --ink:#111418; --paper:#F5F5F2; --white:#FFFFFF;
+  --accent:#C2410C; --accent-light:#F2A07B;
+  --text:#3A3F45; --muted:#5B6067; --line:#DAD9D3; --line-dark:#2A2F35;
+  --display:'Archivo',sans-serif; --body:'IBM Plex Sans',system-ui,sans-serif; --mono:'IBM Plex Mono',monospace;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.55}
+a{color:inherit}
+img{max-width:100%;display:block}
+h1,h2,h3{font-family:var(--display);font-weight:800;letter-spacing:-0.02em;line-height:1.08;margin:0}
+.w{max-width:1240px;margin:0 auto;padding:0 32px}
+.dark{background:var(--ink);color:var(--paper)}
+.kicker{font-family:var(--mono);font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin:0 0 14px}
+.dark .kicker{color:var(--accent-light)}
+.sec{padding:104px 0 16px}
+.sec h2{font-size:46px;max-width:780px;margin-bottom:32px}
+.btn{display:inline-flex;align-items:center;min-height:52px;padding:15px 26px;border-radius:4px;font-weight:600;text-decoration:none}
+.btn-main{background:var(--accent);color:var(--white)}
+.btn-line{border:1.5px solid var(--paper);color:var(--paper)}
+.btn:hover{filter:brightness(1.08)}
+.ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+
+/* header */
+header{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:20px 32px}
+.logo{font-family:var(--display);font-weight:800;font-size:20px;text-decoration:none}
+nav{display:flex;gap:28px;align-items:center;font-size:15px;font-weight:500}
+nav a{text-decoration:none}
+nav .pill{background:var(--paper);color:var(--ink);padding:12px 18px;border-radius:4px}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;padding-top:56px;padding-bottom:88px}
+.hero h1{font-size:62px;line-height:1.02;letter-spacing:-0.025em}
+.hero .sub{font-size:19px;color:#C9CCD0;max-width:560px;margin:26px 0 0}
+.hero .small{font-size:14px;color:#A3A8AE;margin:18px 0 0}
+.hero figure{margin:0}
+.hero figure img{border-radius:6px;aspect-ratio:16/9;object-fit:cover;width:100%}
+.hero figcaption{font-size:14px;color:#A3A8AE;margin-top:10px}
+
+/* studios strip */
+.strip{background:var(--white);border-bottom:1px solid var(--line)}
+.strip .w{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 32px;padding-top:22px;padding-bottom:22px}
+.strip span{font-family:var(--display);font-weight:700}
+.strip .label{font-family:var(--mono);font-weight:500;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+
+/* tabs */
+.tabs{display:flex;gap:28px;border-bottom:1px solid var(--line);margin-bottom:48px}
+.tabs button{background:none;border:0;border-bottom:3px solid transparent;margin-bottom:-1px;padding:0 0 10px;min-height:48px;font-family:var(--display);font-weight:800;font-size:20px;color:var(--muted);cursor:pointer}
+.tabs button[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--accent)}
+.moments{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:0 48px}
+.moments li{display:flex;gap:16px;align-items:baseline;padding:16px 0;border-top:1px solid var(--line);font-family:var(--display);font-weight:700;font-size:20px;line-height:1.3}
+.moments li b{font-family:var(--mono);font-weight:500;font-size:13px;color:var(--accent)}
+.pull{margin:88px 0 0;padding:32px 0;border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);font-family:var(--display);font-weight:800;font-size:34px;line-height:1.15;letter-spacing:-0.02em}
+.offers-head{margin-top:72px}
+.offers-head h2{margin-bottom:10px}
+.offers-head p{color:var(--text);margin:0 0 28px;max-width:780px}
+.offer{display:grid;grid-template-columns:1.2fr 2fr auto;gap:32px;align-items:baseline;padding:28px 0;border-top:1px solid var(--line)}
+.offers{border-bottom:1px solid var(--line)}
+.offer h3{font-size:24px;line-height:1.2;margin-bottom:4px}
+.offer .fmt{font-family:var(--mono);font-size:12px;color:var(--muted);margin:0}
+.offer .body{margin:0;color:var(--text);font-size:16px}
+.offer .price{font-family:var(--display);font-weight:800;font-size:24px;white-space:nowrap;display:block;margin-bottom:8px}
+.offer .price + a{font-size:15px;font-weight:600;color:var(--accent)}
+.note{font-size:15px;color:var(--muted);margin:24px 0 0}
+.note strong{color:var(--ink)}
+
+/* work */
+.work{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+.card .pic{position:relative;aspect-ratio:16/9;border-radius:6px;overflow:hidden;background:var(--tint,#2A2F35);display:flex;align-items:flex-end;padding:16px}
+.card .pic img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.card .pic span{font-family:var(--display);font-weight:800;font-size:26px;line-height:1.05;color:rgba(245,245,242,.35)}
+.card .meta{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);margin:16px 0 4px}
+.card h3{font-size:22px;line-height:1.2}
+.card .hook{color:var(--text);font-size:16px;margin:6px 0 0}
+.card details{margin-top:10px;font-size:15px;color:var(--text)}
+.card summary{cursor:pointer;font-weight:600;color:var(--accent)}
+.card details p{margin:10px 0 0}
+.card details b{color:var(--ink)}
+
+/* proof, steps, fit */
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:0 48px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;list-style:none;margin:0;padding:0}
+.item{border-top:1px solid var(--line);padding:22px 0}
+.item h3{font-size:21px;font-weight:700;margin-bottom:6px;letter-spacing:-0.01em}
+.item p{margin:0;color:var(--text);font-size:16px}
+.item .n{font-family:var(--display);font-weight:800;font-size:34px;color:var(--accent);margin:0 0 8px}
+.fit h2{font-size:26px;margin-bottom:14px}
+.fit ul{margin:0;padding-left:20px;color:var(--text);display:flex;flex-direction:column;gap:8px}
+
+/* about */
+.about{display:grid;grid-template-columns:200px 1fr;gap:56px;align-items:start;padding-bottom:104px}
+.about img{width:160px;height:160px;border-radius:80px;object-fit:cover}
+.about p{color:var(--text);max-width:720px;margin:0 0 16px}
+.about blockquote{margin:12px 0 0;max-width:720px;padding-top:22px;border-top:2px solid var(--ink);font-family:var(--display);font-weight:500;font-size:21px;line-height:1.45}
+
+/* contact */
+.contact{padding-top:96px;padding-bottom:96px}
+.contact h2{font-size:clamp(32px,4.5vw,54px);line-height:1.05;max-width:900px}
+.contact .links{margin:24px 0 0}
+footer{border-top:1px solid var(--line-dark)}
+footer .w{padding-top:22px;padding-bottom:22px;font-size:13px;color:#A3A8AE}
+
+/* phones */
+@media (max-width:860px){
+  .w,header{padding-left:20px;padding-right:20px}
+  nav .hide{display:none}
+  .hero{grid-template-columns:1fr;gap:36px;padding-top:32px;padding-bottom:56px}
+  .hero h1{font-size:38px}
+  .sec{padding-top:72px}
+  .sec h2{font-size:30px}
+  .ctas{flex-direction:column}
+  .ctas .btn{justify-content:center}
+  .tabs{gap:20px}
+  .tabs button{font-size:17px}
+  .moments,.grid2,.grid3,.work{grid-template-columns:1fr;gap:28px}
+  .moments{gap:0}
+  .grid2{gap:0}
+  .pull{font-size:24px}
+  .offer{grid-template-columns:1fr;gap:8px;padding:24px 0}
+  .about{grid-template-columns:1fr;gap:20px}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== HEADER + HERO ===== -->
+<div class="dark">
+  <header>
+    <a class="logo" href="#top">Andrej Savcic</a>
+    <nav aria-label="Main">
+      <a class="hide" href="#offers">Offers</a>
+      <a class="hide" href="#work">Work</a>
+      <a class="hide" href="#about">About</a>
+      <a class="pill" href="#contact">Book a call</a>
+    </nav>
+  </header>
+
+  <section id="top" class="w hero">
+    <div>
+      <p class="kicker">Games producer · remote, worldwide</p>
+      <h1>Make your launch date real.</h1>
+      <p class="sub">Senior production help sized for your team and your budget. I’ve led Thief VR from pitch to vertical slice, led the PC version of Forza Motorsport (2023) with Turn 10, and run three titles at once at 22cans. I start by assessing where your project really is, then help you through the next milestone, the publisher deal or launch.</p>
+      <div class="ctas">
+        <a class="btn btn-main" href="#offers">See offers and prices</a>
+        <a class="btn btn-line" href="#contact">Free 20-minute triage</a>
+      </div>
+      <p class="small">Based in Bucharest, working remotely with teams worldwide. Invoiced in EUR through an EU company.</p>
+    </div>
+    <figure>
+      <img src="img/thief-vr.jpg" alt="Thief VR: Legacy of Shadow key art">
+      <figcaption><strong>Lead Producer</strong> · Thief VR: Legacy of Shadow, Maze Theory</figcaption>
+    </figure>
+  </section>
+</div>
+
+<section class="strip" aria-label="Studios">
+  <div class="w">
+    <span class="label">Worked with</span>
+    <span>Sumo Digital</span><span>Turn 10</span><span>Maze Theory</span><span>22cans</span><span>Preloaded</span><span>UNIT9</span>
+  </div>
+</section>
+
+<!-- ===== OFFERS (two tabs: studios / indie) ===== -->
+<section id="offers" class="w sec">
+  <div class="tabs" role="tablist" aria-label="Who are you?">
+    <button role="tab" aria-selected="true" data-tab="studio">Studios and publishers</button>
+    <button role="tab" aria-selected="false" data-tab="indie">Indie teams</button>
+  </div>
+
+  <!-- STUDIOS -->
+  <div class="panel" data-panel="studio">
+    <p class="kicker">When to bring me in</p>
+    <h2>Most studios call at one of these moments.</h2>
+    <ol class="moments">
+      <li><b>01</b>A publisher asked to see a vertical slice.</li>
+      <li><b>02</b>You’ve signed a publisher deal and the first milestone has a date.</li>
+      <li><b>03</b>Licensor approvals need to fit your milestone plan.</li>
+      <li><b>04</b>You’re bringing in outsourcing, co-dev or a porting partner.</li>
+      <li><b>05</b>Your team is growing and the plan needs to grow with it.</li>
+      <li><b>06</b>Launch, ports and certification are on the calendar.</li>
+    </ol>
+    <p class="pull">AI can review your deck. A producer sits in your publisher meeting and owns your milestone.</p>
+    <div class="offers-head">
+      <h2>Start with an assessment. Keep me on if it helps.</h2>
+      <p>Every engagement starts with an assessment. If you keep me on, its fee comes off the first invoice, and the assessment comes with a money-back guarantee.</p>
+    </div>
+    <div class="offers">
+      <div class="offer">
+        <div><h3>Project assessment</h3><p class="fmt">Fixed price · 2 weeks</p></div>
+        <p class="body">I play your build, read your plan, schedule, budget and pitch, and interview your leads. You get a written report: where you really are, the five biggest risks, what to cut, and a plan to your next milestone. Plus a 90-minute call.</p>
+        <div><span class="price">EUR 3,500</span><a href="#contact">Book an assessment</a></div>
+      </div>
+      <div class="offer">
+        <div><h3>Ongoing production help</h3><p class="fmt">Monthly · reviewed each month</p></div>
+        <p class="body">I stay on as your fractional producer: two live sessions a week in fixed slots, milestone and risk tracking, publisher reporting, and a review of every build. Up to two teams at a time.</p>
+        <div><span class="price">From EUR 1,500 / month</span><a href="#contact">Talk about it</a></div>
+      </div>
+      <div class="offer">
+        <div><h3>Transition sprint</h3><p class="fmt">4 to 8 weeks · end date agreed up front</p></div>
+        <p class="body">Focused help through one moment: getting pitch-ready, a milestone and publisher deal, bringing in partners, a port and certification, or the launch window. Ends with a handover to your team.</p>
+        <div><span class="price">EUR 500 / day</span><a href="#contact">Talk about it</a></div>
+      </div>
+      <div class="offer">
+        <div><h3>Specialist help</h3><p class="fmt">Scoped after a call</p></div>
+        <p class="body">Licensed IP and licensor approvals, choosing and managing co-dev and outsourcing partners, partner contracts alongside your lawyer, AI in your production pipeline, and training for your producers.</p>
+        <div><span class="price">On request</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- INDIE -->
+  <div class="panel" data-panel="indie" hidden>
+    <p class="kicker">When to bring me in</p>
+    <h2>Most indie teams call at one of these moments.</h2>
+    <ol class="moments">
+      <li><b>01</b>You’re about to send your first publisher pitch.</li>
+      <li><b>02</b>You want your pitch to land with publishers.</li>
+      <li><b>03</b>Your scope and your runway need to line up.</li>
+      <li><b>04</b>A publisher replied, and now they want a budget and a schedule.</li>
+      <li><b>05</b>You want one person owning the plan.</li>
+      <li><b>06</b>You’re applying for a grant or fund and need a credible plan.</li>
+    </ol>
+    <p class="pull">AI can review your deck. A producer sits in your publisher meeting and owns your milestone.</p>
+    <div class="offers-head">
+      <h2>A shipped producer’s eyes on your game, at indie prices.</h2>
+      <p>Small teams need an honest read on where they are, and someone who holds them to their own plan for a few hours a month. The assessment comes with a money-back guarantee.</p>
+    </div>
+    <div class="offers">
+      <div class="offer">
+        <div><h3>Project assessment for small teams</h3><p class="fmt">Fixed price · 1 week</p></div>
+        <p class="body">I play your build and read your plan and pitch. Written notes on where you really are, what a publisher will question first, and what to fix, plus a 60-minute call.</p>
+        <div><span class="price">EUR 750</span><a href="#contact">Book an assessment</a></div>
+      </div>
+      <div class="offer">
+        <div><h3>Production mentoring</h3><p class="fmt">Monthly · cancel any time</p></div>
+        <p class="body">Two 60-minute calls a month and messages in between. I learn your project, track your plan with you, and flag early when the plan needs adjusting. Assessment fee credited.</p>
+        <div><span class="price">EUR 350 / month</span><a href="#contact">Start mentoring</a></div>
+      </div>
+      <div class="offer">
+        <div><h3>Workshops and AI setup</h3><p class="fmt">Half day · online or at your event</p></div>
+        <p class="body">Sessions on scoping, milestones and pitching for teams and incubators, or setting up AI tools for planning, docs and prototyping around how your team works.</p>
+        <div><span class="price">From EUR 500</span></div>
+      </div>
+    </div>
+  </div>
+
+  <p class="note"><strong>Live sessions:</strong> Tuesday, Wednesday and Friday 07:00 to 11:00 UK time (afternoon in Tokyo, evening in Sydney), and weekday evenings from 16:00 UK (11:00 US Eastern, 08:00 US Pacific). Written work happens in between. Prices exclude VAT.</p>
+</section>
+
+<!-- ===== SELECTED WORK ===== -->
+<section id="work" class="w sec">
+  <p class="kicker">Selected work</p>
+  <h2>Games, launches and live shows.</h2>
+  <div class="work">
+
+    <article class="card">
+      <div class="pic"><img src="img/thief-vr.jpg" alt="Thief VR: Legacy of Shadow"></div>
+      <p class="meta">Maze Theory · Lead Producer · 2023 to 2024</p>
+      <h3>Thief VR: Legacy of Shadow</h3>
+      <p class="hook">Pitch to vertical slice for a much-loved franchise, brought back in VR.</p>
+      <details><summary>Full story</summary>
+        <p>Quest, PS VR2 and Steam, published by Vertigo Games with Eidos-Montréal, shipped December 2025.</p>
+        <p><b>What I did:</b> led 30+ developers and five department leads from pitch through contract to vertical slice. Set vision pillars with the directors, rebuilt the level design pipeline, embedded licensor reviews in milestone planning, and set up outsourcing with Eastern European partners.</p>
+        <p><b>Outcome:</b> milestones on time and on budget. Licensor review cut from two weeks to three days. Feature completion up 15%. Outsourcing 30% cheaper at the same quality.</p>
+        <p><a href="https://youtu.be/xrtbCcnZEhQ">Watch the trailer</a></p>
+      </details>
+    </article>
+
+    <article class="card">
+      <div class="pic"><img src="img/forza-motorsport.jpg" alt="Forza Motorsport (2023)"></div>
+      <p class="meta">Sumo Digital with Turn 10 · Senior Producer · 2021 to 2023</p>
+      <h3>Forza Motorsport (2023)</h3>
+      <p class="hook">Led the PC version of Xbox’s flagship racing sim.</p>
+      <details><summary>Full story</summary>
+        <p><b>What I did:</b> led the PC workstream with Turn 10 (performance targets, platform features, Steam integration) and overhauled the branching strategy, halving build verification time.</p>
+        <p><b>Outcome:</b> PC delivered ahead of schedule, which freed the team to help on console features.</p>
+        <p><a href="https://youtu.be/em4gv1Ietko">Watch the trailer</a></p>
+      </details>
+    </article>
+
+    <article class="card">
+      <div class="pic"><img src="img/peaky-blinders.jpg" alt="Peaky Blinders: The King’s Ransom"></div>
+      <p class="meta">Maze Theory · Lead Producer · 2023</p>
+      <h3>Peaky Blinders: The King’s Ransom</h3>
+      <p class="hook">A major TV licence through console certification.</p>
+      <details><summary>Full story</summary>
+        <p><b>What I did:</b> oversaw the Complete Edition launch on PS VR2 and PC VR, anchored scope around a fan-focused vision, and kept the story-led experience intact through certification.</p>
+        <p><b>Outcome:</b> launched in November 2023 with all post-launch content included.</p>
+        <p><a href="https://youtu.be/TT_tV18z2fU">Watch the trailer</a></p>
+      </details>
+    </article>
+
+    <article class="card">
+      <div class="pic"><img src="img/human-fall-flat.jpg" alt="Human: Fall Flat"></div>
+      <p class="meta">Sumo Digital · Senior Producer · 2021 to 2023</p>
+      <h3>Human: Fall Flat DLC</h3>
+      <p class="hook">Two paid level packs for a long-running co-op hit.</p>
+      <details><summary>Full story</summary>
+        <p><b>What I did:</b> produced the Laboratory and Lumber packs end to end, coordinating design, art and QA through parallel console and PC certification.</p>
+        <p><b>Outcome:</b> both packs shipped on PlayStation, Xbox and PC, localised in 16 languages.</p>
+        <p><a href="https://youtu.be/-Edk59BqSEU">Watch the trailer</a></p>
+      </details>
+    </article>
+
+    <article class="card">
+      <div class="pic"><img src="img/godus.jpg" alt="Godus"></div>
+      <p class="meta">22cans · Head of Production · 2019 to 2020</p>
+      <h3>Legacy, Godus and The Trail</h3>
+      <p class="hook">Three titles at once, 40 developers.</p>
+      <details><summary>Full story</summary>
+        <p><b>What I did:</b> re-scoped Legacy with a route to soft launch, introduced OKRs and cross-functional strike teams, ran live ops for Godus and user acquisition for The Trail on A/B testing and data.</p>
+        <p><b>Outcome:</b> Legacy reached soft launch. Budgets of about £2M ran leaner through reused tooling and renegotiated vendor contracts. Two internal promotions.</p>
+        <p><a href="https://youtu.be/Nj0A_TSYHcs">Watch Legacy</a></p>
+      </details>
+    </article>
+
+    <article class="card">
+      <div class="pic"><img src="img/storm-vr.jpg" alt="Storm VR"></div>
+      <p class="meta">UNIT9 · VR Project Manager · 2016 to 2017</p>
+      <h3>Storm VR</h3>
+      <p class="hook">Pitched internally, shipped as the studio’s first commercial VR game.</p>
+      <details><summary>Full story</summary>
+        <p><b>What I did:</b> ran a 15-person team through design, an engine move from Unity to Unreal, playtests, storefront submission and go-to-market.</p>
+        <p><b>Outcome:</b> shipped on Steam, Oculus and Viveport. Pixel Award, People’s Champ 2017. Covered by Jacksepticeye (1M+ views).</p>
+        <p><a href="https://youtu.be/RHeX-xUTFsE">Watch the trailer</a></p>
+      </details>
+    </article>
+
+    <article class="card">
+      <div class="pic" style="--tint:#2E2445"><span>Ancient Dungeon VR</span></div>
+      <p class="meta">Maze Theory · Lead Producer · 2023</p>
+      <h3>Ancient Dungeon VR</h3>
+      <p class="hook">PS VR2 launch delivered on time, with two weeks less schedule.</p>
+      <details><summary>Full story</summary>
+        <p><b>What I did:</b> brought a hit indie VR roguelike to PS VR2 and through certification after the schedule was cut by two weeks.</p>
+        <p><b>Outcome:</b> launched on PS VR2 in December 2023, on time.</p>
+      </details>
+    </article>
+
+    <article class="card">
+      <div class="pic"><img src="img/happy-studio.jpg" alt="Happy Studio app"></div>
+      <p class="meta">Preloaded · Producer · 2017 to 2019</p>
+      <h3>Happy Studio for McDonald’s</h3>
+      <p class="hook">New games for a children’s app with 10M+ downloads.</p>
+      <details><summary>Full story</summary>
+        <p><b>What I did:</b> delivered new in-app games, managed Unity engine upgrades and coordinated localisation across 24 regions.</p>
+        <p><b>Outcome:</b> sustained reach across 110+ markets and 48 languages.</p>
+        <p><a href="https://preloaded.com/work/happy-meal-app/">See it at Preloaded</a></p>
+      </details>
+    </article>
+
+    <article class="card">
+      <div class="pic"><img src="img/london-transport-museum.jpg" alt="London Transport Museum installation"></div>
+      <p class="meta">Preloaded · Producer · 2017 to 2019</p>
+      <h3>London Transport Museum</h3>
+      <p class="hook">Visitors drive an Elizabeth line cab into the platform.</p>
+      <details><summary>Full story</summary>
+        <p><b>What I did:</b> produced a six-screen permanent installation built to run all day, plus a one-screen touring version shown at Learning Technologies.</p>
+        <p><b>Outcome:</b> 200,000+ visitors at 98% uptime. A visitor favourite and a permanent exhibit.</p>
+      </details>
+    </article>
+
+    <article class="card">
+      <div class="pic"><img src="img/mercedes-benz-now.jpg" alt="Mercedes-Benz NOW live show"></div>
+      <p class="meta">UNIT9 · IT Project Manager · 2015 to 2016</p>
+      <h3>Mercedes-Benz NOW</h3>
+      <p class="hook">A 12-hour multi-camera live show that ran fault-free.</p>
+      <details><summary>Full story</summary>
+        <p><b>What I did:</b> managed budgets and suppliers across analog and digital installations for a data-fed show mixed into a looping 60-second Vision Mix.</p>
+        <p><b>Outcome:</b> the 12-hour show ran fault-free.</p>
+      </details>
+    </article>
+
+    <article class="card">
+      <div class="pic"><img src="img/airbus-elev8.jpg" alt="Airbus ELEV_8 booth"></div>
+      <p class="meta">UNIT9 · Producer</p>
+      <h3>Airbus ELEV_8</h3>
+      <p class="hook">A four-screen booth for the RAF Cosford Air Show.</p>
+      <details><summary>Full story</summary>
+        <p><b>What I did:</b> managed the brief, supplier tendering, the physical build and contractors for a transportable four-screen booth with immersive audio.</p>
+      </details>
+    </article>
+
+    <article class="card">
+      <div class="pic" style="--tint:#3A3F45"><span>BBC R&amp;D</span></div>
+      <p class="meta">Preloaded · Producer · 2017 to 2019</p>
+      <h3>BBC R&amp;D: accessible AR</h3>
+      <p class="hook">AR for visually impaired users, tested in short sprints.</p>
+      <details><summary>Full story</summary>
+        <p><b>What I did:</b> ran one to two week sprints with audience testing between each.</p>
+        <p><b>Outcome:</b> helped shape new AR accessibility guidelines.</p>
+      </details>
+    </article>
+
+  </div>
+</section>
+
+<!-- ===== PROOF ===== -->
+<section class="w sec">
+  <p class="kicker">Proof you can check</p>
+  <h2>Check it for yourself.</h2>
+  <div class="grid2">
+    <div class="item"><h3>Every credit is public</h3><p>Each project above links to its trailer or published work.</p></div>
+    <div class="item"><h3>Your money back</h3><p>Every assessment is guaranteed to tell you something useful about your project, or I refund it. Ongoing help runs month to month.</p></div>
+    <div class="item"><h3>Recognised work</h3><p>Thief VR, published by Vertigo Games with Eidos-Montréal. Forza Motorsport (2023) with Turn 10. Storm VR, Pixel Award People’s Champ 2017.</p></div>
+    <div class="item"><h3>Teams and budgets</h3><p>Teams of up to 40 and budgets up to £4M, across VR, console, PC and mobile.</p></div>
+  </div>
+</section>
+
+<!-- ===== HOW WE START ===== -->
+<section class="w sec">
+  <p class="kicker">How we start</p>
+  <h2>Three steps. You can stop after any of them.</h2>
+  <ol class="grid3">
+    <li class="item"><p class="n">1</p><h3>Free 20-minute triage</h3><p>You tell me where the project is. I tell you whether I can help and which offer fits.</p></li>
+    <li class="item"><p class="n">2</p><h3>A project assessment</h3><p>I play the build, read the plan and talk to your team, then give you a written verdict. You keep it whatever you decide next.</p></li>
+    <li class="item"><p class="n">3</p><h3>Ongoing help, if you want it</h3><p>Ongoing production help for studios, or mentoring for small teams. The assessment fee is credited against it.</p></li>
+  </ol>
+</section>
+
+<!-- ===== FIT ===== -->
+<section class="w sec fit">
+  <div class="grid2">
+    <div><h2>Good fit</h2>
+      <ul>
+        <li>Studios of 8 to 30 with funding, a publisher deal or a pitch coming up</li>
+        <li>Indie teams of 2 to 10 preparing a first publisher pitch or demo</li>
+        <li>Publishers who need a producer on a funded external team</li>
+        <li>Licensed IP, VR, co-development, ports and launches</li>
+      </ul></div>
+    <div><h2>How I work</h2>
+      <ul>
+        <li>Fixed scopes with an agreed end date</li>
+        <li>Transparent prices, published on this page</li>
+        <li>Creative direction stays with your team</li>
+      </ul></div>
+  </div>
+</section>
+
+<!-- ===== ABOUT ===== -->
+<section id="about" class="w sec">
+  <div class="about">
+    <img src="img/andrej-savcic.png" alt="Andrej Savcic">
+    <div>
+      <p class="kicker">About</p>
+      <h2>Hi, I'm Andrej.</h2>
+      <p>Over a decade shipping across VR, console, PC and mobile, at Sumo Digital, Maze Theory, 22cans, Preloaded and UNIT9. I came into production through IT infrastructure and a computer-science-heavy degree, so I plan with a working understanding of what the build takes.</p>
+      <p>Through my studio LudoSpark I also run production training for studios and games R&amp;D for clients including Greenpeace. I work in English, Romanian and Italian.</p>
+      <blockquote>Most production work happens in the gap between what the plan says and what the build actually is. That gap is where my effort goes.</blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section id="contact" class="dark">
+  <div class="w contact">
+    <h2>Tell me where your project is. I'll tell you where it's heading.</h2>
+    <div class="ctas">
+      <a class="btn btn-main" href="mailto:savcic.andrej@gmail.com?subject=Free%2020-minute%20triage">Book a free 20-minute triage</a>
+      <a class="btn btn-line" href="mailto:savcic.andrej@gmail.com?subject=Project%20assessment">Ask about an assessment</a>
+    </div>
+    <p class="links"><a href="mailto:savcic.andrej@gmail.com">savcic.andrej@gmail.com</a> · <a href="https://linkedin.com/in/andrej-savcic">LinkedIn</a></p>
+  </div>
+  <footer><div class="w">Andrej Savcic · games production consulting · Prices exclude VAT</div></footer>
+</section>
+
+<script>
+// Studio / indie tabs
+document.querySelectorAll('[data-tab]').forEach(function (btn) {
+  btn.addEventListener('click', function () {
+    document.querySelectorAll('[data-tab]').forEach(function (b) { b.setAttribute('aria-selected', b === btn); });
+    document.querySelectorAll('[data-panel]').forEach(function (p) { p.hidden = p.dataset.panel !== btn.dataset.tab; });
+  });
+});
+</script>
+</body>
+</html>
