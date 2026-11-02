@@ -98,7 +98,11 @@ nav .pill{background:var(--paper);color:var(--ink);padding:14px 24px;border-radi
 
 /* studios strip */
 .strip{background:var(--white);border-bottom:1px solid var(--line)}
-.strip .w{display:flex;flex-wrap:wrap;align-items:center;gap:10px 40px;padding-top:26px;padding-bottom:26px}
+.strip .w{display:flex;flex-direction:column;gap:18px;padding-top:28px;padding-bottom:28px}
+.strip .row{display:grid;grid-template-columns:200px 1fr;gap:8px 24px;align-items:baseline}
+.strip .names{display:flex;flex-wrap:wrap;gap:6px 32px}
+.strip .names span{white-space:nowrap}
+.strip .note{margin:0;padding-top:16px;border-top:1px solid var(--line);font-size:13px;color:var(--muted)}
 .strip span{font-family:var(--display);font-weight:700}
 .strip .label{font-family:var(--mono);font-weight:500;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
 
@@ -215,6 +219,7 @@ footer .w{padding-top:24px;padding-bottom:24px;font-size:13px;color:#A3A8AE}
   .moments,.grid2,.grid3,.work{grid-template-columns:1fr}
   .offer{padding:24px}
   .about{grid-template-columns:1fr}
+  .strip .row{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -250,10 +255,11 @@ footer .w{padding-top:24px;padding-bottom:24px;font-size:13px;color:#A3A8AE}
   </section>
 </div>
 
-<section class="strip" aria-label="Studios">
+<section class="strip" aria-label="Employers and clients">
   <div class="w">
-    <span class="label">Worked with</span>
-    <span>Sumo Digital</span><span>Turn 10</span><span>Maze Theory</span><span>22cans</span><span>PRELOADED</span><span>UNIT9</span>
+    <div class="row"><span class="label">Employers</span><div class="names"><span>Sumo Digital</span><span>Maze Theory</span><span>22cans</span><span>PRELOADED</span><span>UNIT9</span></div></div>
+    <div class="row"><span class="label">Delivered for, through them</span><div class="names"><span>Turn 10</span><span>Curve Games</span><span>Microsoft</span><span>EA</span><span>Google</span><span>Mercedes-Benz</span><span>Nissan</span><span>McDonald’s</span><span>Verizon</span><span>BBC R&amp;D</span><span>Discovery</span><span>National Geographic</span><span>R/GA</span><span>London Transport Museum</span><span>Natural History Museum of Utah</span><span>University of Oxford</span><span>OMY</span></div></div>
+    <p class="note">Client work delivered while employed by the studios above. Names are shown for reference only and do not imply endorsement.</p>
   </div>
 </section>
 
