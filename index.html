@@ -83,6 +83,13 @@ nav .pill{background:var(--paper);color:var(--ink);padding:14px 24px;border-radi
 .hero .slides{position:relative;aspect-ratio:16/9;border-radius:var(--radius);overflow:hidden;border:1px solid rgba(245,245,242,.16);box-shadow:0 24px 60px -24px rgba(0,0,0,.7);background:#1A1E23}
 .hero .slides img{position:absolute;inset:0;width:100%;height:100%;border:0;border-radius:0;box-shadow:none;aspect-ratio:auto;opacity:0;transition:opacity .9s ease}
 .hero .slides img.on{opacity:1}
+.hero .slides .nav{position:absolute;top:0;bottom:0;z-index:2;width:24%;display:flex;align-items:center;padding:0 14px;border:0;color:#fff;cursor:pointer;opacity:0;transition:opacity .2s}
+.hero .slides .prev{left:0;justify-content:flex-start;background:linear-gradient(90deg,rgba(13,16,19,.8),rgba(13,16,19,0))}
+.hero .slides .next{right:0;justify-content:flex-end;background:linear-gradient(270deg,rgba(13,16,19,.8),rgba(13,16,19,0))}
+.hero .slides .nav:hover,.hero .slides .nav:focus-visible{opacity:1}
+.hero .slides .nav svg{width:40px;height:40px;padding:8px;border-radius:50%;background:rgba(13,16,19,.55);transition:background .15s}
+.hero .slides .nav:hover svg{background:var(--accent)}
+@media (hover:none){.hero .slides .nav{opacity:1;width:18%}}
 .hero .dots{display:flex;gap:2px}
 .hero .dots button{position:relative;width:22px;height:28px;padding:0;background:none;border:0;cursor:pointer}
 .hero .dots button::after{content:"";position:absolute;left:3px;right:3px;top:12px;height:4px;border-radius:2px;background:rgba(245,245,242,.28);transition:background .2s}
@@ -607,6 +614,7 @@ footer .w{padding-top:24px;padding-bottom:24px;font-size:13px;color:#A3A8AE}
   });
 
   var cur = 0, timer = null;
+  var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   function show(i) {
     cur = i;
     imgs.forEach(function (im, k) { im.classList.toggle('on', k === i); });
@@ -618,10 +626,21 @@ footer .w{padding-top:24px;padding-bottom:24px;font-size:13px;color:#A3A8AE}
     text.appendChild(document.createTextNode(' · ' + sl.title + ', ' + sl.studio));
   }
   function stop() { clearInterval(timer); timer = null; }
-  function start() { if (!timer) timer = setInterval(function () { show((cur + 1) % slides.length); }, 4500); }
+  function start() { if (!timer && !still) timer = setInterval(function () { show((cur + 1) % slides.length); }, 4500); }
   function restart() { stop(); start(); }
+  ['prev', 'next'].forEach(function (dir) {
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'nav ' + dir;
+    b.setAttribute('aria-label', dir === 'prev' ? 'Previous project' : 'Next project');
+    b.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="' + (dir === 'prev' ? 'M15 5l-7 7 7 7' : 'M9 5l7 7-7 7') + '"/></svg>';
+    b.addEventListener('click', function () {
+      show((cur + (dir === 'next' ? 1 : slides.length - 1)) % slides.length);
+      restart();
+    });
+    box.appendChild(b);
+  });
   show(0);
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   start();
   fig.addEventListener('mouseenter', stop);
   fig.addEventListener('mouseleave', start);
