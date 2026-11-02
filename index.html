@@ -54,32 +54,32 @@ p,li,figcaption,summary{text-wrap:balance}
 .nb{white-space:nowrap}
 .w{max-width:1240px;margin:0 auto;padding:0 var(--gutter)}
 .dark{background:var(--ink);color:var(--paper)}
-.kicker{font-family:var(--mono);font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin:0 0 16px}
+.kicker{font-family:var(--mono);font-size:14px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin:0 0 18px}
 .dark .kicker{color:var(--accent-light)}
 .sec{padding-top:var(--section)}
 .sec h2{font-size:clamp(30px,3.6vw,46px);max-width:780px;margin-bottom:36px}
-.btn{display:inline-flex;align-items:center;min-height:52px;padding:15px 26px;border-radius:8px;font-weight:600;text-decoration:none;transition:filter .15s,transform .15s}
+.btn{display:inline-flex;align-items:center;min-height:56px;padding:16px 30px;font-size:17px;border-radius:8px;font-weight:600;text-decoration:none;transition:filter .15s,transform .15s}
 .btn-main{background:var(--accent);color:var(--white)}
 .btn-line{border:1.5px solid var(--paper);color:var(--paper)}
 .btn:hover{filter:brightness(1.08);transform:translateY(-1px)}
 .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:36px}
 
 /* header */
-header{display:flex;justify-content:space-between;align-items:center;gap:16px;max-width:1240px;margin:0 auto;padding:22px var(--gutter)}
-.logo{font-family:var(--display);font-weight:800;font-size:20px;text-decoration:none}
-nav{display:flex;gap:32px;align-items:center;font-size:15px;font-weight:500}
+header{display:flex;justify-content:space-between;align-items:center;gap:16px;max-width:1240px;margin:0 auto;padding:28px var(--gutter)}
+.logo{font-family:var(--display);font-weight:800;font-size:26px;text-decoration:none}
+nav{display:flex;gap:36px;align-items:center;font-size:17px;font-weight:500}
 nav a{text-decoration:none}
 nav a:not(.pill):hover{color:var(--accent-light)}
-nav .pill{background:var(--paper);color:var(--ink);padding:12px 20px;border-radius:8px}
+nav .pill{background:var(--paper);color:var(--ink);padding:14px 24px;border-radius:8px}
 
 /* hero */
 .hero{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(40px,6vw,88px);align-items:center;padding-top:clamp(32px,5vw,64px);padding-bottom:clamp(56px,8vw,104px)}
-.hero h1{font-size:clamp(40px,5.2vw,68px);line-height:1.02;letter-spacing:-0.025em}
-.hero .sub{font-size:19px;color:#C9CCD0;max-width:56ch;margin:28px 0 0}
-.hero .small{font-size:14px;color:#A3A8AE;margin:20px 0 0;max-width:56ch}
+.hero h1{font-size:clamp(44px,5.2vw,72px);line-height:1.02;letter-spacing:-0.025em}
+.hero .sub{font-size:clamp(18px,1.6vw,22px);color:#C9CCD0;max-width:56ch;margin:28px 0 0}
+.hero .small{font-size:15px;color:#A3A8AE;margin:20px 0 0;max-width:56ch}
 .hero figure{margin:0}
 .hero figure img{border-radius:var(--radius);aspect-ratio:16/9;object-fit:cover;width:100%;border:1px solid rgba(245,245,242,.16);box-shadow:0 24px 60px -24px rgba(0,0,0,.7)}
-.hero figcaption{font-size:14px;color:#A3A8AE;margin-top:14px}
+.hero figcaption{font-size:15px;color:#A3A8AE;margin-top:14px}
 
 /* studios strip */
 .strip{background:var(--white);border-bottom:1px solid var(--line)}
@@ -113,7 +113,9 @@ nav .pill{background:var(--paper);color:var(--ink);padding:12px 20px;border-radi
 /* work */
 .work{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
 .card{display:flex;flex-direction:column;background:var(--white);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;transition:box-shadow .2s,transform .2s}
+.work .card{cursor:pointer}
 .card:hover{box-shadow:var(--shadow);transform:translateY(-2px)}
+.work .card:hover .more{text-decoration:underline}
 .card .pic{position:relative;aspect-ratio:16/9;overflow:hidden;background:var(--tint,#2A2F35);display:flex;align-items:flex-end;padding:18px;border-bottom:1px solid var(--line)}
 .card .pic img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .card .pic span{font-family:var(--display);font-weight:800;font-size:26px;line-height:1.05;color:rgba(245,245,242,.35)}
@@ -553,7 +555,8 @@ footer .w{padding-top:24px;padding-bottom:24px;font-size:13px;color:#A3A8AE}
     btn.type = 'button';
     btn.className = 'more';
     btn.textContent = 'Full story';
-    btn.addEventListener('click', function () {
+    card.addEventListener('click', function (e) {
+      if (e.target.closest('a')) return;
       var copy = card.cloneNode(true);
       copy.removeChild(copy.querySelector('.more'));
       copy.appendChild(full.cloneNode(true));
