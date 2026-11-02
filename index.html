@@ -170,15 +170,25 @@ nav .pill{background:var(--paper);color:var(--ink);padding:14px 24px;border-radi
 .card .more::after{content:" \2192"}
 .card .more:hover{text-decoration:underline}
 body:has(dialog[open]){overflow:hidden}
-dialog.story{width:min(680px,calc(100% - 32px));max-height:calc(100dvh - 48px);padding:0;border:1px solid var(--line);border-radius:var(--radius);background:var(--white);color:var(--ink);box-shadow:0 30px 80px -20px rgba(0,0,0,.5);overflow:auto}
+dialog.story{width:min(760px,calc(100% - 32px));max-height:calc(100dvh - 48px);padding:0;border:1px solid var(--line);border-radius:var(--radius);background:var(--white);color:var(--ink);box-shadow:0 30px 80px -20px rgba(0,0,0,.5);overflow:auto}
 dialog.story::backdrop{background:rgba(17,20,24,.65)}
 .story .card{border:0;border-radius:0;box-shadow:none;transform:none}
-.story .card .hook{flex:none;font-size:18px}
-.story .full{margin:16px 24px 28px;display:flex;flex-direction:column;gap:12px;font-size:16px;color:var(--text)}
+.story .card{display:grid;grid-template-columns:240px 1fr;column-gap:28px;align-items:start;padding:28px}
+.story .card .pic{grid-column:1;grid-row:1/4;padding:0;border:1px solid var(--line);border-radius:8px}
+.story .card .meta,.story .card h3,.story .card .hook{grid-column:2;margin-right:40px}
+.story .card .meta{margin-top:0;margin-left:0}
+.story .card h3{margin-left:0;font-size:26px}
+.story .card .hook{flex:none;font-size:17px;margin-left:0;margin-top:8px}
+.story .full{grid-column:1/-1;margin:24px 0 0;max-width:68ch;display:flex;flex-direction:column;gap:14px;font-size:17px;line-height:1.6;color:var(--text)}
 .story .full p{margin:0}
 .story .full b{color:var(--ink)}
-.story .close{position:absolute;top:12px;right:12px;z-index:2;width:40px;height:40px;border-radius:50%;border:0;background:rgba(17,20,24,.78);color:#fff;font-size:22px;line-height:1;cursor:pointer}
-.story .close:hover{background:var(--ink)}
+.story .close{position:absolute;top:14px;right:14px;z-index:2;width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:var(--paper);color:var(--ink);font-size:22px;line-height:1;cursor:pointer}
+.story .close:hover{background:var(--ink);color:var(--paper)}
+@media (max-width:560px){
+  .story .card{grid-template-columns:1fr;padding:20px}
+  .story .card .pic{grid-column:1;grid-row:auto;max-width:240px;margin-bottom:16px}
+  .story .card .meta,.story .card h3,.story .card .hook{grid-column:1}
+}
 
 /* proof, steps, fit */
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
