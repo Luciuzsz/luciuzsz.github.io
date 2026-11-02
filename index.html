@@ -181,6 +181,9 @@ dialog.story::backdrop{background:rgba(17,20,24,.65)}
 .story .card .hook{flex:none;font-size:17px;margin-left:0;margin-top:8px}
 .story .full{grid-column:1/-1;margin:24px 0 0;max-width:68ch;display:flex;flex-direction:column;gap:14px;font-size:17px;line-height:1.6;color:var(--text)}
 .story .full p{margin:0}
+.story .full a{display:inline-flex;align-items:center;gap:8px;min-height:48px;padding:12px 22px;border-radius:8px;background:var(--accent);color:var(--white);font-weight:600;text-decoration:none;transition:filter .15s,transform .15s}
+.story .full a::after{content:"\2197"}
+.story .full a:hover{filter:brightness(1.08);transform:translateY(-1px)}
 .story .full b{color:var(--ink)}
 .story .close{position:absolute;top:14px;right:14px;z-index:2;width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:var(--paper);color:var(--ink);font-size:22px;line-height:1;cursor:pointer}
 .story .close:hover{background:var(--ink);color:var(--paper)}
@@ -351,10 +354,6 @@ footer a{color:inherit}
       </details>
     </article>
 
-  </div>
-  <h3 class="more-head">More work</h3>
-  <div class="work">
-
     <article class="card">
       <div class="pic"><img src="img/peaky-blinders.jpg" alt="Peaky Blinders: The King’s Ransom"></div>
       <p class="meta">Maze Theory · Lead Producer · 2023</p>
@@ -368,6 +367,21 @@ footer a{color:inherit}
     </article>
 
     <article class="card">
+      <div class="pic"><img src="img/ancient-dungeon-vr.jpg" alt="Ancient Dungeon VR"></div>
+      <p class="meta">Maze Theory · Lead Producer · 2023</p>
+      <h3>Ancient Dungeon VR</h3>
+      <p class="hook">PS VR2 launch delivered on time, with two weeks less schedule.</p>
+      <details><summary>Full story</summary>
+        <p><b>What I did:</b> brought a hit indie VR roguelike to PS VR2 and through certification after the schedule was cut by two weeks.</p>
+        <p><b>Outcome:</b> launched on PS VR2 in December 2023, on time.</p>
+      </details>
+    </article>
+
+  </div>
+  <h3 class="more-head">More work</h3>
+  <div class="work">
+
+    <article class="card">
       <div class="pic"><img src="img/storm-vr.jpg" alt="Storm VR"></div>
       <p class="meta">UNIT9 · VR Project Manager · 2016 to 2017</p>
       <h3>Storm VR</h3>
@@ -376,17 +390,6 @@ footer a{color:inherit}
         <p><b>What I did:</b> ran a 15-person team through design, an engine move from Unity to Unreal, playtests, storefront submission and go-to-market.</p>
         <p><b>Outcome:</b> shipped on Steam, Oculus and Viveport. Pixel Award, People’s Champ 2017. Covered by Jacksepticeye (1M+ views).</p>
         <p><a href="https://youtu.be/RHeX-xUTFsE">Watch the trailer</a></p>
-      </details>
-    </article>
-
-    <article class="card">
-      <div class="pic"><img src="img/ancient-dungeon-vr.jpg" alt="Ancient Dungeon VR"></div>
-      <p class="meta">Maze Theory · Lead Producer · 2023</p>
-      <h3>Ancient Dungeon VR</h3>
-      <p class="hook">PS VR2 launch delivered on time, with two weeks less schedule.</p>
-      <details><summary>Full story</summary>
-        <p><b>What I did:</b> brought a hit indie VR roguelike to PS VR2 and through certification after the schedule was cut by two weeks.</p>
-        <p><b>Outcome:</b> launched on PS VR2 in December 2023, on time.</p>
       </details>
     </article>
 
@@ -739,6 +742,7 @@ footer a{color:inherit}
       var copy = card.cloneNode(true);
       copy.removeChild(copy.querySelector('.more'));
       copy.appendChild(full.cloneNode(true));
+      copy.querySelectorAll('.full a').forEach(function (l) { l.target = '_blank'; l.rel = 'noopener'; });
       body.innerHTML = '';
       body.appendChild(copy);
       dlg.setAttribute('aria-label', card.querySelector('h3').textContent);
