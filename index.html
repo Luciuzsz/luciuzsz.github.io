@@ -119,11 +119,24 @@ nav .pill{background:var(--paper);color:var(--ink);padding:12px 20px;border-radi
 .card .pic span{font-family:var(--display);font-weight:800;font-size:26px;line-height:1.05;color:rgba(245,245,242,.35)}
 .card .meta{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);margin:20px 24px 6px}
 .card h3{font-size:22px;line-height:1.2;margin:0 24px}
-.card .hook{color:var(--text);font-size:16px;margin:8px 24px 0}
+.card .hook{color:var(--text);font-size:16px;margin:8px 24px 0;flex:1}
 .card details{margin:14px 24px 24px;font-size:15px;color:var(--text)}
 .card summary{cursor:pointer;font-weight:600;color:var(--accent)}
 .card details p{margin:10px 0 0}
 .card details b{color:var(--ink)}
+.card .more{align-self:flex-start;margin:14px 24px 24px;padding:0;background:none;border:0;font:inherit;font-size:15px;font-weight:600;color:var(--accent);cursor:pointer}
+.card .more::after{content:" \2192"}
+.card .more:hover{text-decoration:underline}
+body:has(dialog[open]){overflow:hidden}
+dialog.story{width:min(680px,calc(100% - 32px));max-height:calc(100dvh - 48px);padding:0;border:1px solid var(--line);border-radius:var(--radius);background:var(--white);color:var(--ink);box-shadow:0 30px 80px -20px rgba(0,0,0,.5);overflow:auto}
+dialog.story::backdrop{background:rgba(17,20,24,.65)}
+.story .card{border:0;border-radius:0;box-shadow:none;transform:none}
+.story .card .hook{flex:none;font-size:18px}
+.story .full{margin:16px 24px 28px;display:flex;flex-direction:column;gap:12px;font-size:16px;color:var(--text)}
+.story .full p{margin:0}
+.story .full b{color:var(--ink)}
+.story .close{position:absolute;top:12px;right:12px;z-index:2;width:40px;height:40px;border-radius:50%;border:0;background:rgba(17,20,24,.78);color:#fff;font-size:22px;line-height:1;cursor:pointer}
+.story .close:hover{background:var(--ink)}
 
 /* proof, steps, fit */
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
@@ -520,6 +533,40 @@ footer .w{padding-top:24px;padding-bottom:24px;font-size:13px;color:#A3A8AE}
 </section>
 
 <script>
+// Work cards: "Full story" opens a dialog instead of growing the grid row
+(function () {
+  var dlg = document.createElement('dialog');
+  dlg.className = 'story';
+  dlg.innerHTML = '<form method="dialog"><button class="close" aria-label="Close">×</button></form><div></div>';
+  document.body.appendChild(dlg);
+  var body = dlg.lastChild;
+  dlg.addEventListener('click', function (e) { if (e.target === dlg) dlg.close(); });
+  document.querySelectorAll('.work .card').forEach(function (card) {
+    var d = card.querySelector('details');
+    if (!d) return;
+    var full = document.createElement('div');
+    full.className = 'full';
+    Array.prototype.forEach.call(d.children, function (n) {
+      if (n.tagName !== 'SUMMARY') full.appendChild(n.cloneNode(true));
+    });
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'more';
+    btn.textContent = 'Full story';
+    btn.addEventListener('click', function () {
+      var copy = card.cloneNode(true);
+      copy.removeChild(copy.querySelector('.more'));
+      copy.appendChild(full.cloneNode(true));
+      body.innerHTML = '';
+      body.appendChild(copy);
+      dlg.setAttribute('aria-label', card.querySelector('h3').textContent);
+      dlg.showModal();
+      dlg.scrollTop = 0;
+    });
+    d.replaceWith(btn);
+  });
+})();
+
 // Studio / indie tabs
 document.querySelectorAll('[data-tab]').forEach(function (btn) {
   btn.addEventListener('click', function () {
