@@ -79,7 +79,15 @@ nav .pill{background:var(--paper);color:var(--ink);padding:14px 24px;border-radi
 .hero .small{font-size:15px;color:#A3A8AE;margin:20px 0 0;max-width:56ch}
 .hero figure{margin:0}
 .hero figure img{border-radius:var(--radius);aspect-ratio:16/9;object-fit:cover;width:100%;border:1px solid rgba(245,245,242,.16);box-shadow:0 24px 60px -24px rgba(0,0,0,.7)}
-.hero figcaption{font-size:15px;color:#A3A8AE;margin-top:14px}
+.hero figcaption{font-size:15px;color:#A3A8AE;margin-top:14px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px 16px}
+.hero .slides{position:relative;aspect-ratio:16/9;border-radius:var(--radius);overflow:hidden;border:1px solid rgba(245,245,242,.16);box-shadow:0 24px 60px -24px rgba(0,0,0,.7);background:#1A1E23}
+.hero .slides img{position:absolute;inset:0;width:100%;height:100%;border:0;border-radius:0;box-shadow:none;aspect-ratio:auto;opacity:0;transition:opacity .9s ease}
+.hero .slides img.on{opacity:1}
+.hero .dots{display:flex;gap:2px}
+.hero .dots button{position:relative;width:22px;height:28px;padding:0;background:none;border:0;cursor:pointer}
+.hero .dots button::after{content:"";position:absolute;left:3px;right:3px;top:12px;height:4px;border-radius:2px;background:rgba(245,245,242,.28);transition:background .2s}
+.hero .dots button:hover::after{background:rgba(245,245,242,.6)}
+.hero .dots button[aria-current="true"]::after{background:var(--accent-light)}
 
 /* studios strip */
 .strip{background:var(--white);border-bottom:1px solid var(--line)}
@@ -535,6 +543,79 @@ footer .w{padding-top:24px;padding-bottom:24px;font-size:13px;color:#A3A8AE}
 </section>
 
 <script>
+// Hero: crossfade through the work images, led by the headline projects
+(function () {
+  var fig = document.querySelector('.hero figure');
+  var first = fig.querySelector('img');
+  var cap = fig.querySelector('figcaption');
+  var lead = ['thief-vr', 'forza-motorsport', 'godus', 'human-fall-flat'];
+  function rank(src) {
+    for (var i = 0; i < lead.length; i++) if (src.indexOf(lead[i]) !== -1) return i;
+    return lead.length;
+  }
+  var slides = [];
+  document.querySelectorAll('.work .card').forEach(function (card) {
+    var img = card.querySelector('.pic img');
+    if (!img) return;
+    var parts = card.querySelector('.meta').textContent.split(' · ');
+    slides.push({ src: img.getAttribute('src'), alt: img.alt, studio: parts[0], role: parts[1], title: card.querySelector('h3').textContent });
+  });
+  slides.sort(function (a, b) { return rank(a.src) - rank(b.src); });
+  if (slides.length < 2) return;
+
+  var box = document.createElement('div');
+  box.className = 'slides';
+  fig.insertBefore(box, first);
+  box.appendChild(first);
+  first.classList.add('on');
+  var imgs = slides.map(function (sl, i) {
+    if (i === 0) return first;
+    var im = document.createElement('img');
+    im.src = sl.src;
+    im.alt = sl.alt;
+    im.loading = 'lazy';
+    box.appendChild(im);
+    return im;
+  });
+
+  var text = document.createElement('span');
+  var dots = document.createElement('div');
+  dots.className = 'dots';
+  cap.textContent = '';
+  cap.appendChild(text);
+  cap.appendChild(dots);
+  var buttons = slides.map(function (sl, i) {
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.setAttribute('aria-label', 'Show ' + sl.title);
+    b.addEventListener('click', function () { show(i); restart(); });
+    dots.appendChild(b);
+    return b;
+  });
+
+  var cur = 0, timer = null;
+  function show(i) {
+    cur = i;
+    imgs.forEach(function (im, k) { im.classList.toggle('on', k === i); });
+    buttons.forEach(function (b, k) { if (k === i) b.setAttribute('aria-current', 'true'); else b.removeAttribute('aria-current'); });
+    var sl = slides[i], strong = document.createElement('strong');
+    strong.textContent = sl.role;
+    text.textContent = '';
+    text.appendChild(strong);
+    text.appendChild(document.createTextNode(' · ' + sl.title + ', ' + sl.studio));
+  }
+  function stop() { clearInterval(timer); timer = null; }
+  function start() { if (!timer) timer = setInterval(function () { show((cur + 1) % slides.length); }, 4500); }
+  function restart() { stop(); start(); }
+  show(0);
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  start();
+  fig.addEventListener('mouseenter', stop);
+  fig.addEventListener('mouseleave', start);
+  fig.addEventListener('focusin', stop);
+  fig.addEventListener('focusout', start);
+})();
+
 // Work cards: "Full story" opens a dialog instead of growing the grid row
 (function () {
   var dlg = document.createElement('dialog');
