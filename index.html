@@ -73,7 +73,7 @@ nav a:not(.pill):hover{color:var(--accent-light)}
 nav .pill{background:var(--paper);color:var(--ink);padding:14px 24px;border-radius:8px}
 
 /* hero */
-.hero{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(40px,6vw,88px);align-items:center;padding-top:clamp(32px,5vw,64px);padding-bottom:clamp(56px,8vw,104px)}
+.hero{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(40px,6vw,88px);align-items:center;padding-top:clamp(32px,5vw,64px);padding-bottom:clamp(40px,5vw,64px)}
 .hero h1{font-size:clamp(44px,5.2vw,72px);line-height:1.02;letter-spacing:-0.025em}
 .hero .sub{font-size:clamp(18px,1.6vw,22px);color:#C9CCD0;max-width:56ch;margin:28px 0 0}
 .hero .small{font-size:15px;color:#A3A8AE;margin:20px 0 0;max-width:56ch}
@@ -96,10 +96,11 @@ nav .pill{background:var(--paper);color:var(--ink);padding:14px 24px;border-radi
 .strip .label{font-family:var(--mono);font-weight:500;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
 
 /* tabs */
-.tabs{display:inline-flex;gap:4px;padding:4px;border:1px solid var(--line);border-radius:999px;background:var(--white);margin-bottom:56px}
-.tabs button{background:none;border:0;border-radius:999px;padding:0 24px;min-height:46px;font-family:var(--display);font-weight:800;font-size:17px;color:var(--muted);cursor:pointer;transition:background .15s,color .15s}
-.tabs button:hover{color:var(--ink)}
-.tabs button[aria-selected="true"]{background:var(--ink);color:var(--paper)}
+#offers{padding-top:clamp(44px,5vw,64px)}
+.tabs{display:inline-flex;gap:4px;padding:5px;border:2px solid var(--ink);border-radius:999px;background:var(--white);margin-bottom:40px}
+.tabs button{background:none;border:0;border-radius:999px;padding:0 26px;min-height:50px;font-family:var(--display);font-weight:800;font-size:18px;color:var(--ink);cursor:pointer;transition:background .15s,color .15s}
+.tabs button:hover{background:var(--paper)}
+.tabs button[aria-selected="true"]{background:var(--accent);color:var(--white)}
 .moments{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 .moments li{display:flex;flex-direction:column;gap:14px;padding:24px;background:var(--white);border:1px solid var(--line);border-radius:var(--radius);font-family:var(--display);font-weight:700;font-size:19px;line-height:1.3}
 .moments li b{font-family:var(--mono);font-weight:500;font-size:13px;color:var(--accent)}
