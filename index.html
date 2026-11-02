@@ -90,7 +90,8 @@ nav .pill{background:var(--paper);color:var(--ink);padding:14px 24px;border-radi
 .hero .slides .nav svg{width:40px;height:40px;padding:8px;border-radius:50%;background:rgba(13,16,19,.55);transition:background .15s}
 .hero .slides .nav:hover svg{background:var(--accent)}
 @media (hover:none){.hero .slides .nav{opacity:1;width:18%}}
-.hero .dots{display:flex;align-items:center;gap:2px}
+.hero .dots{display:flex;flex-wrap:wrap;align-items:center;gap:2px;min-width:0}
+.hero > div,.hero figure{min-width:0}
 .hero .dots .pause{display:grid;place-items:center;width:32px;height:32px;margin-right:8px;color:#F5F5F2}
 .hero .dots .pause::after{display:none}
 .hero .dots .pause svg{width:16px;height:16px}
@@ -105,6 +106,17 @@ nav .pill{background:var(--paper);color:var(--ink);padding:14px 24px;border-radi
 .strip .row{display:grid;grid-template-columns:200px 1fr;gap:8px 24px;align-items:baseline}
 .strip .names{display:flex;flex-wrap:wrap;gap:6px 32px}
 .strip .names span{white-space:nowrap}
+.strip .marquee{display:block;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent)}
+.strip .track{display:flex;width:max-content;animation:roll 70s linear infinite}
+.strip .set{display:flex;flex-shrink:0;gap:32px;padding-right:32px}
+.strip .marquee:hover .track{animation-play-state:paused}
+@keyframes roll{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){
+  .strip .marquee{overflow:visible;-webkit-mask-image:none;mask-image:none}
+  .strip .track{animation:none;width:auto}
+  .strip .set{flex-wrap:wrap;padding-right:0}
+  .strip .set[aria-hidden]{display:none}
+}
 .strip .note{margin:0;padding-top:16px;border-top:1px solid var(--line);font-size:13px;color:var(--muted)}
 .strip span{font-family:var(--display);font-weight:700}
 .strip .label{font-family:var(--mono);font-weight:500;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
@@ -135,6 +147,11 @@ nav .pill{background:var(--paper);color:var(--ink);padding:14px 24px;border-radi
 
 /* work */
 .work{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.work.featured{grid-template-columns:repeat(2,1fr)}
+.work.featured .card h3{font-size:28px}
+.work.featured .card .hook{font-size:18px}
+.work.featured .card .meta{font-size:13px}
+.more-head{font-size:26px;margin:56px 0 24px}
 .card{display:flex;flex-direction:column;background:var(--white);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;transition:box-shadow .2s,transform .2s}
 .work .card{cursor:pointer}
 .card:hover{box-shadow:var(--shadow);transform:translateY(-2px)}
@@ -222,7 +239,7 @@ footer a{color:inherit}
   .ctas .btn{justify-content:center}
   .tabs{display:flex;margin-bottom:40px}
   .tabs button{flex:1;padding:0 12px;font-size:15px}
-  .moments,.grid2,.grid3,.work{grid-template-columns:1fr}
+  .moments,.grid2,.grid3,.work,.work.featured{grid-template-columns:1fr}
   .offer{padding:24px}
   .about{grid-template-columns:1fr}
   .strip .row{grid-template-columns:1fr}
@@ -264,7 +281,7 @@ footer a{color:inherit}
 <section class="strip" aria-label="Employers and clients">
   <div class="w">
     <div class="row"><span class="label">Employers</span><div class="names"><span>Sumo Digital</span><span>Maze Theory</span><span>22cans</span><span>PRELOADED</span><span>UNIT9</span></div></div>
-    <div class="row"><span class="label">Client work, through my employers</span><div class="names"><span>Turn 10</span><span>Curve Games</span><span>Microsoft</span><span>EA</span><span>Google</span><span>Mercedes-Benz</span><span>Nissan</span><span>McDonald’s</span><span>Verizon</span><span>BBC R&amp;D</span><span>Discovery</span><span>National Geographic</span><span>R/GA</span><span>London Transport Museum</span><span>Natural History Museum of Utah</span><span>University of Oxford</span><span>OMY</span></div></div>
+    <div class="row"><span class="label">Client work, through my employers</span><div class="names marquee"><div class="track"><div class="set"><span>Turn 10</span><span>Curve Games</span><span>Microsoft</span><span>EA</span><span>Google</span><span>Mercedes-Benz</span><span>Nissan</span><span>McDonald’s</span><span>Verizon</span><span>BBC R&amp;D</span><span>Discovery</span><span>National Geographic</span><span>R/GA</span><span>London Transport Museum</span><span>Natural History Museum of Utah</span><span>University of Oxford</span><span>OMY</span></div><div class="set" aria-hidden="true"><span>Turn 10</span><span>Curve Games</span><span>Microsoft</span><span>EA</span><span>Google</span><span>Mercedes-Benz</span><span>Nissan</span><span>McDonald’s</span><span>Verizon</span><span>BBC R&amp;D</span><span>Discovery</span><span>National Geographic</span><span>R/GA</span><span>London Transport Museum</span><span>Natural History Museum of Utah</span><span>University of Oxford</span><span>OMY</span></div></div></div></div>
     <p class="note">Client work delivered while employed by the studios above. Names are shown for reference only and do not imply endorsement.</p>
   </div>
 </section>
@@ -273,7 +290,7 @@ footer a{color:inherit}
 <section id="work" class="w sec">
   <p class="kicker">Selected work</p>
   <h2>Games, launches and live shows.</h2>
-  <div class="work">
+  <div class="work featured">
 
     <article class="card">
       <div class="pic"><img src="img/thief-vr.jpg" alt="Thief VR: Legacy of Shadow"></div>
@@ -301,14 +318,14 @@ footer a{color:inherit}
     </article>
 
     <article class="card">
-      <div class="pic"><img src="img/peaky-blinders.jpg" alt="Peaky Blinders: The King’s Ransom"></div>
-      <p class="meta">Maze Theory · Lead Producer · 2023</p>
-      <h3>Peaky Blinders: The King’s Ransom</h3>
-      <p class="hook">A major TV licence through console certification.</p>
+      <div class="pic"><img src="img/godus.jpg" alt="Godus"></div>
+      <p class="meta">22cans · Head of Production · 2019 to 2020</p>
+      <h3>Legacy, Godus and The Trail</h3>
+      <p class="hook">Three titles at once, 40 developers.</p>
       <details><summary>Full story</summary>
-        <p><b>What I did:</b> oversaw the Complete Edition launch on PS VR2 and PC VR, anchored scope around a fan-focused vision, and kept the story-led experience intact through certification.</p>
-        <p><b>Outcome:</b> launched in November 2023 with all post-launch content included.</p>
-        <p><a href="https://youtu.be/TT_tV18z2fU">Watch the trailer</a></p>
+        <p><b>What I did:</b> re-scoped Legacy with a route to soft launch, introduced OKRs and cross-functional strike teams, ran live ops for Godus and user acquisition for The Trail on A/B testing and data.</p>
+        <p><b>Outcome:</b> Legacy reached soft launch. Budgets of about £2M ran leaner through reused tooling and renegotiated vendor contracts. Two internal promotions.</p>
+        <p><a href="https://youtu.be/Nj0A_TSYHcs">Watch Legacy</a></p>
       </details>
     </article>
 
@@ -324,15 +341,19 @@ footer a{color:inherit}
       </details>
     </article>
 
+  </div>
+  <h3 class="more-head">More work</h3>
+  <div class="work">
+
     <article class="card">
-      <div class="pic"><img src="img/godus.jpg" alt="Godus"></div>
-      <p class="meta">22cans · Head of Production · 2019 to 2020</p>
-      <h3>Legacy, Godus and The Trail</h3>
-      <p class="hook">Three titles at once, 40 developers.</p>
+      <div class="pic"><img src="img/peaky-blinders.jpg" alt="Peaky Blinders: The King’s Ransom"></div>
+      <p class="meta">Maze Theory · Lead Producer · 2023</p>
+      <h3>Peaky Blinders: The King’s Ransom</h3>
+      <p class="hook">A major TV licence through console certification.</p>
       <details><summary>Full story</summary>
-        <p><b>What I did:</b> re-scoped Legacy with a route to soft launch, introduced OKRs and cross-functional strike teams, ran live ops for Godus and user acquisition for The Trail on A/B testing and data.</p>
-        <p><b>Outcome:</b> Legacy reached soft launch. Budgets of about £2M ran leaner through reused tooling and renegotiated vendor contracts. Two internal promotions.</p>
-        <p><a href="https://youtu.be/Nj0A_TSYHcs">Watch Legacy</a></p>
+        <p><b>What I did:</b> oversaw the Complete Edition launch on PS VR2 and PC VR, anchored scope around a fan-focused vision, and kept the story-led experience intact through certification.</p>
+        <p><b>Outcome:</b> launched in November 2023 with all post-launch content included.</p>
+        <p><a href="https://youtu.be/TT_tV18z2fU">Watch the trailer</a></p>
       </details>
     </article>
 
