@@ -90,9 +90,12 @@ nav .pill{background:var(--paper);color:var(--ink);padding:14px 24px;border-radi
 .hero .slides .nav svg{width:40px;height:40px;padding:8px;border-radius:50%;background:rgba(13,16,19,.55);transition:background .15s}
 .hero .slides .nav:hover svg{background:var(--accent)}
 @media (hover:none){.hero .slides .nav{opacity:1;width:18%}}
-.hero .dots{display:flex;gap:2px}
-.hero .dots button{position:relative;width:22px;height:28px;padding:0;background:none;border:0;cursor:pointer}
-.hero .dots button::after{content:"";position:absolute;left:3px;right:3px;top:12px;height:4px;border-radius:2px;background:rgba(245,245,242,.28);transition:background .2s}
+.hero .dots{display:flex;align-items:center;gap:2px}
+.hero .dots .pause{display:grid;place-items:center;width:32px;height:32px;margin-right:8px;color:#F5F5F2}
+.hero .dots .pause::after{display:none}
+.hero .dots .pause svg{width:16px;height:16px}
+.hero .dots button{position:relative;width:26px;height:32px;padding:0;background:none;border:0;cursor:pointer}
+.hero .dots button::after{content:"";position:absolute;left:5px;right:5px;top:14px;height:4px;border-radius:2px;background:rgba(245,245,242,.28);transition:background .2s}
 .hero .dots button:hover::after{background:rgba(245,245,242,.6)}
 .hero .dots button[aria-current="true"]::after{background:var(--accent-light)}
 
@@ -107,7 +110,6 @@ nav .pill{background:var(--paper);color:var(--ink);padding:14px 24px;border-radi
 .strip .label{font-family:var(--mono);font-weight:500;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
 
 /* tabs */
-#offers{padding-top:clamp(44px,5vw,64px)}
 .ask{font-family:var(--display);font-weight:800;font-size:clamp(22px,2.4vw,30px);letter-spacing:-0.01em;line-height:1.15;margin:0 0 16px}
 .tabs{display:inline-flex;gap:4px;padding:5px;border:2px solid var(--ink);border-radius:999px;background:var(--white);margin-bottom:40px}
 .tabs button{background:none;border:0;border-radius:999px;padding:0 26px;min-height:50px;font-family:var(--display);font-weight:800;font-size:18px;color:var(--ink);cursor:pointer;transition:background .15s,color .15s}
@@ -198,6 +200,10 @@ footer .w{padding-top:24px;padding-bottom:24px;font-size:13px;color:#A3A8AE}
   .hero h1{margin-bottom:8px}
 }
 
+.cta-band{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 32px;margin-top:40px;padding:28px 32px;background:var(--white);border:1px solid var(--line);border-radius:var(--radius)}
+.cta-band p{margin:0;font-family:var(--display);font-weight:800;font-size:clamp(20px,2.2vw,26px);line-height:1.2;max-width:34ch;text-wrap:balance}
+footer a{color:inherit}
+
 /* tablets */
 @media (max-width:1100px){
   .work{grid-template-columns:repeat(2,1fr)}
@@ -230,10 +236,10 @@ footer .w{padding-top:24px;padding-bottom:24px;font-size:13px;color:#A3A8AE}
   <header>
     <a class="logo" href="#top">Andrej Savcic</a>
     <nav aria-label="Main">
-      <a class="hide" href="#offers">Offers</a>
       <a class="hide" href="#work">Work</a>
       <a class="hide" href="#about">About</a>
-      <a class="pill" href="#contact">Book a call</a>
+      <a class="hide" href="#offers">Offers</a>
+      <a class="pill" href="#contact">Book a free call</a>
     </nav>
   </header>
 
@@ -241,10 +247,10 @@ footer .w{padding-top:24px;padding-bottom:24px;font-size:13px;color:#A3A8AE}
     <div>
       <p class="kicker">Games producer · remote, worldwide</p>
       <h1>Make your launch date real.</h1>
-      <p class="sub">Senior production help sized for your team and your budget. I’ve led Thief VR from pitch to vertical slice, led the PC version of Forza Motorsport (2023) with Turn 10, and run three titles at once at 22cans. I start by assessing where your project really is, then help you through the next milestone, the publisher deal or launch.</p>
+      <p class="sub">Senior games producer for studios and indie teams. I led Thief VR, the PC version of Forza Motorsport (2023) and three live titles at 22cans. I start by assessing where your project really is, then help you reach the next milestone, publisher deal or launch.</p>
       <div class="ctas">
-        <a class="btn btn-main" href="#offers">See offers and prices</a>
-        <a class="btn btn-line" href="#contact">Free 20-minute triage</a>
+        <a class="btn btn-main" href="#offers" data-pick="studio">I’m a studio or publisher</a>
+        <a class="btn btn-line" href="#offers" data-pick="indie">I’m an indie team</a>
       </div>
       <p class="small">Based in Bucharest, working remotely with teams worldwide. Invoiced in EUR through an EU company.</p>
     </div>
@@ -258,97 +264,9 @@ footer .w{padding-top:24px;padding-bottom:24px;font-size:13px;color:#A3A8AE}
 <section class="strip" aria-label="Employers and clients">
   <div class="w">
     <div class="row"><span class="label">Employers</span><div class="names"><span>Sumo Digital</span><span>Maze Theory</span><span>22cans</span><span>PRELOADED</span><span>UNIT9</span></div></div>
-    <div class="row"><span class="label">Delivered for, through them</span><div class="names"><span>Turn 10</span><span>Curve Games</span><span>Microsoft</span><span>EA</span><span>Google</span><span>Mercedes-Benz</span><span>Nissan</span><span>McDonald’s</span><span>Verizon</span><span>BBC R&amp;D</span><span>Discovery</span><span>National Geographic</span><span>R/GA</span><span>London Transport Museum</span><span>Natural History Museum of Utah</span><span>University of Oxford</span><span>OMY</span></div></div>
+    <div class="row"><span class="label">Client work, through my employers</span><div class="names"><span>Turn 10</span><span>Curve Games</span><span>Microsoft</span><span>EA</span><span>Google</span><span>Mercedes-Benz</span><span>Nissan</span><span>McDonald’s</span><span>Verizon</span><span>BBC R&amp;D</span><span>Discovery</span><span>National Geographic</span><span>R/GA</span><span>London Transport Museum</span><span>Natural History Museum of Utah</span><span>University of Oxford</span><span>OMY</span></div></div>
     <p class="note">Client work delivered while employed by the studios above. Names are shown for reference only and do not imply endorsement.</p>
   </div>
-</section>
-
-<!-- ===== OFFERS (two tabs: studios / indie) ===== -->
-<section id="offers" class="w sec">
-  <p class="ask" id="ask">Are you an indie team or a studio / publisher?</p>
-  <div class="tabs" role="tablist" aria-labelledby="ask">
-    <button role="tab" aria-selected="true" data-tab="studio">Studios and publishers</button>
-    <button role="tab" aria-selected="false" data-tab="indie">Indie teams</button>
-  </div>
-
-  <!-- STUDIOS -->
-  <div class="panel" data-panel="studio">
-    <p class="kicker">When to bring me in</p>
-    <h2>Most studios call at one of these moments.</h2>
-    <ol class="moments">
-      <li><b>01</b>A publisher asked to see a vertical slice.</li>
-      <li><b>02</b>You’ve signed a publisher deal and the first milestone has a date.</li>
-      <li><b>03</b>Licensor approvals need to fit your milestone plan.</li>
-      <li><b>04</b>You’re bringing in outsourcing, co-dev or a porting partner.</li>
-      <li><b>05</b>Your team is growing and the plan needs to grow with it.</li>
-      <li><b>06</b>Launch, ports and certification are on the calendar.</li>
-    </ol>
-    <p class="pull">AI can review your deck. A producer sits in your publisher meeting and owns your milestone.</p>
-    <div class="offers-head">
-      <h2>Start with an assessment. Keep me on if it helps.</h2>
-      <p>Every engagement starts with an assessment. If you keep me on, its fee comes off the first invoice, and the assessment comes with a money-back guarantee.</p>
-    </div>
-    <div class="offers">
-      <div class="offer">
-        <div><h3>Project assessment</h3><p class="fmt">Fixed price · 2 weeks</p></div>
-        <p class="body">I play your build, read your plan, schedule, budget and pitch, and interview your leads. You get a written report: where you really are, the five biggest risks, what to cut, and a plan to your next milestone. Plus a 90-minute call.</p>
-        <div><span class="price">EUR 3,500</span><a href="#contact">Book an assessment</a></div>
-      </div>
-      <div class="offer">
-        <div><h3>Ongoing production help</h3><p class="fmt">Monthly · reviewed each month</p></div>
-        <p class="body">I stay on as your fractional producer: two live sessions a week in fixed slots, milestone and risk tracking, publisher reporting, and a review of every build. Up to two teams at a time.</p>
-        <div><span class="price">From EUR 1,500 / month</span><a href="#contact">Talk about it</a></div>
-      </div>
-      <div class="offer">
-        <div><h3>Transition sprint</h3><p class="fmt">4 to 8 weeks · end date agreed up front</p></div>
-        <p class="body">Focused help through one moment: getting pitch-ready, a milestone and publisher deal, bringing in partners, a port and certification, or the launch window. Ends with a handover to your team.</p>
-        <div><span class="price">EUR 500 / day</span><a href="#contact">Talk about it</a></div>
-      </div>
-      <div class="offer">
-        <div><h3>Specialist help</h3><p class="fmt">Scoped after a call</p></div>
-        <p class="body">Licensed IP and licensor approvals, choosing and managing co-dev and outsourcing partners, partner contracts alongside your lawyer, AI in your production pipeline, and training for your producers.</p>
-        <div><span class="price">On request</span></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- INDIE -->
-  <div class="panel" data-panel="indie" hidden>
-    <p class="kicker">When to bring me in</p>
-    <h2>Most indie teams call at one of these moments.</h2>
-    <ol class="moments">
-      <li><b>01</b>You’re about to send your first publisher pitch.</li>
-      <li><b>02</b>You want your pitch to land with publishers.</li>
-      <li><b>03</b>Your scope and your runway need to line up.</li>
-      <li><b>04</b>A publisher replied, and now they want a budget and a schedule.</li>
-      <li><b>05</b>You want one person owning the plan.</li>
-      <li><b>06</b>You’re applying for a grant or fund and need a credible plan.</li>
-    </ol>
-    <p class="pull">AI can review your deck. A producer sits in your publisher meeting and owns your milestone.</p>
-    <div class="offers-head">
-      <h2>A shipped producer’s eyes on your game, at indie prices.</h2>
-      <p>Small teams need an honest read on where they are, and someone who holds them to their own plan for a few hours a month. The assessment comes with a money-back guarantee.</p>
-    </div>
-    <div class="offers">
-      <div class="offer">
-        <div><h3>Project assessment for small teams</h3><p class="fmt">Fixed price · 1 week</p></div>
-        <p class="body">I play your build and read your plan and pitch. Written notes on where you really are, what a publisher will question first, and what to fix, plus a 60-minute call.</p>
-        <div><span class="price">EUR 750</span><a href="#contact">Book an assessment</a></div>
-      </div>
-      <div class="offer">
-        <div><h3>Production mentoring</h3><p class="fmt">Monthly · cancel any time</p></div>
-        <p class="body">Two 60-minute calls a month and messages in between. I learn your project, track your plan with you, and flag early when the plan needs adjusting. Assessment fee credited.</p>
-        <div><span class="price">EUR 350 / month</span><a href="#contact">Start mentoring</a></div>
-      </div>
-      <div class="offer">
-        <div><h3>Workshops and AI setup</h3><p class="fmt">Half day · online or at your event</p></div>
-        <p class="body">Sessions on scoping, milestones and pitching for teams and incubators, or setting up AI tools for planning, docs and prototyping around how your team works.</p>
-        <div><span class="price">From EUR 500</span></div>
-      </div>
-    </div>
-  </div>
-
-  <p class="note"><strong>Live sessions:</strong> Tuesday, Wednesday and Friday 07:00 to 11:00 UK time (afternoon in Tokyo, evening in Sydney), and weekday evenings from 16:00 UK (11:00 US Eastern, 08:00 US Pacific). Written work happens in between. Prices exclude VAT.</p>
 </section>
 
 <!-- ===== SELECTED WORK ===== -->
@@ -497,17 +415,127 @@ footer .w{padding-top:24px;padding-bottom:24px;font-size:13px;color:#A3A8AE}
     </article>
 
   </div>
+
+  <div class="cta-band">
+    <p>Seen something like your project? Book a free 20-minute call.</p>
+    <a class="btn btn-main" href="mailto:savcic.andrej@gmail.com?subject=Free%2020-minute%20call">Book a free 20-minute call</a>
+  </div>
 </section>
 
 <!-- ===== PROOF ===== -->
 <section class="w sec">
   <p class="kicker">Proof you can check</p>
-  <h2>Check it for yourself.</h2>
-  <div class="grid2">
+  <h2>Credits you can verify.</h2>
+  <div class="grid3">
     <div class="item"><h3>Every credit is public</h3><p>Each project above links to its trailer or published work.</p></div>
-    <div class="item"><h3>Your money back</h3><p>Every assessment is guaranteed to tell you something useful about your project, or I refund it. Ongoing help runs month to month.</p></div>
     <div class="item"><h3>Recognised work</h3><p>Thief VR, published by Vertigo Games with <span class="nb">Eidos-Montréal</span>. Forza Motorsport (2023) with Turn 10. Storm VR, Pixel Award People’s Champ 2017.</p></div>
     <div class="item"><h3>Teams and budgets</h3><p>Teams of up to 40 and budgets up to £4M, across VR, console, PC and mobile.</p></div>
+  </div>
+</section>
+
+<!-- ===== ABOUT ===== -->
+<section id="about" class="w sec">
+  <div class="about">
+    <img src="img/andrej-savcic.png" alt="Andrej Savcic">
+    <div>
+      <p class="kicker">About</p>
+      <h2>Hi, I'm Andrej.</h2>
+      <p>Over a decade shipping across VR, console, PC and mobile, at Sumo Digital, Maze Theory, 22cans, PRELOADED and UNIT9. I came into production through IT infrastructure and a computer science degree, so I plan with a working understanding of what the build takes.</p>
+      <p>Through my studio LudoSpark I also run production training for studios and games R&amp;D for clients including Greenpeace. I work in English, Romanian and Italian.</p>
+      <blockquote>Most production work happens in the gap between what the plan says and what the build actually is. That gap is where my effort goes.</blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- ===== OFFERS (two tabs: studios / indie) ===== -->
+<section id="offers" class="w sec">
+  <p class="ask" id="ask">Are you an indie team or a studio / publisher?</p>
+  <div class="tabs" role="tablist" aria-labelledby="ask">
+    <button role="tab" aria-selected="true" data-tab="studio">Studios and publishers</button>
+    <button role="tab" aria-selected="false" data-tab="indie">Indie teams</button>
+  </div>
+
+  <!-- STUDIOS -->
+  <div class="panel" data-panel="studio">
+    <p class="kicker">When to bring me in</p>
+    <h2>Most studios call at one of these moments.</h2>
+    <ol class="moments">
+      <li>A publisher asked to see a vertical slice.</li>
+      <li>You’ve signed a publisher deal and the first milestone has a date.</li>
+      <li>Licensor approvals need to fit your milestone plan.</li>
+      <li>You’re bringing in outsourcing, co-dev or a porting partner.</li>
+      <li>Your team is growing and the plan needs to grow with it.</li>
+      <li>Launch, ports and certification are on the calendar.</li>
+    </ol>
+    <p class="pull">AI can review your deck. A producer sits in your publisher meeting and owns your milestone.</p>
+    <div class="offers-head">
+      <h2>Start with an assessment. Keep me on if it helps.</h2>
+      <p>Every engagement starts with an assessment. If you keep me on, its fee comes off the first invoice, and the assessment comes with a money-back guarantee.</p>
+    </div>
+    <div class="offers">
+      <div class="offer">
+        <div><h3>Project assessment</h3><p class="fmt">Fixed price · 2 weeks</p></div>
+        <p class="body">I play your build, read your plan, schedule, budget and pitch, and interview your leads. You get a written report: where you really are, the five biggest risks, what to cut, and a plan to your next milestone. Plus a 90-minute call.</p>
+        <div><span class="price">€3,500</span><a href="#contact">Book an assessment</a></div>
+      </div>
+      <div class="offer">
+        <div><h3>Ongoing production help</h3><p class="fmt">Monthly · reviewed each month</p></div>
+        <p class="body">I stay on as your fractional producer: two live sessions a week in fixed slots, milestone and risk tracking, publisher reporting, and a review of every build. Up to two teams at a time.</p>
+        <div><span class="price">From €1,500 / month</span><a href="#contact">Discuss this</a></div>
+      </div>
+      <div class="offer">
+        <div><h3>Milestone sprint</h3><p class="fmt">4 to 8 weeks · end date agreed up front</p></div>
+        <p class="body">Focused help through one moment: getting pitch-ready, a milestone and publisher deal, bringing in partners, a port and certification, or the launch window. Ends with a handover to your team.</p>
+        <div><span class="price">€500 / day</span><a href="#contact">Discuss this</a></div>
+      </div>
+      <div class="offer">
+        <div><h3>Specialist help</h3><p class="fmt">Scoped after a call</p></div>
+        <p class="body">Licensed IP and licensor approvals, choosing and managing co-dev and outsourcing partners, partner contracts alongside your lawyer, AI in your production pipeline, and training for your producers.</p>
+        <div><span class="price">On request</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- INDIE -->
+  <div class="panel" data-panel="indie" hidden>
+    <p class="kicker">When to bring me in</p>
+    <h2>Most indie teams call at one of these moments.</h2>
+    <ol class="moments">
+      <li>You’re about to send your first publisher pitch and want it to land.</li>
+      <li>Your scope and your runway need to line up.</li>
+      <li>A publisher replied, and now they want a budget and a schedule.</li>
+      <li>You want one person owning the plan.</li>
+      <li>You’re applying for a grant or fund and need a credible plan.</li>
+    </ol>
+    <p class="pull">AI can review your deck. A producer sits in your publisher meeting and owns your milestone.</p>
+    <div class="offers-head">
+      <h2>A shipped producer’s eyes on your game, at indie prices.</h2>
+      <p>Small teams need an honest read on where they are, and someone who holds them to their own plan for a few hours a month. The assessment comes with a money-back guarantee.</p>
+    </div>
+    <div class="offers">
+      <div class="offer">
+        <div><h3>Project assessment for small teams</h3><p class="fmt">Fixed price · 1 week</p></div>
+        <p class="body">I play your build and read your plan and pitch. Written notes on where you really are, what a publisher will question first, and what to fix, plus a 60-minute call.</p>
+        <div><span class="price">€750</span><a href="#contact">Book an assessment</a></div>
+      </div>
+      <div class="offer">
+        <div><h3>Production mentoring</h3><p class="fmt">Monthly · cancel any time</p></div>
+        <p class="body">Two 60-minute calls a month and messages in between. I learn your project, track your plan with you, and flag early when the plan needs adjusting. Assessment fee credited.</p>
+        <div><span class="price">€350 / month</span><a href="#contact">Start mentoring</a></div>
+      </div>
+      <div class="offer">
+        <div><h3>Workshops and AI setup</h3><p class="fmt">Half day · online or at your event</p></div>
+        <p class="body">Sessions on scoping, milestones and pitching for teams and incubators, or setting up AI tools for planning, docs and prototyping around how your team works.</p>
+        <div><span class="price">From €500</span></div>
+      </div>
+    </div>
+  </div>
+
+  <p class="note">Prices exclude VAT.</p>
+
+  <div class="cta-band">
+    <p>Not sure which offer fits? Book a free 20-minute call and I’ll tell you.</p>
+    <a class="btn btn-main" href="mailto:savcic.andrej@gmail.com?subject=Free%2020-minute%20call">Book a free 20-minute call</a>
   </div>
 </section>
 
@@ -516,7 +544,7 @@ footer .w{padding-top:24px;padding-bottom:24px;font-size:13px;color:#A3A8AE}
   <p class="kicker">How we start</p>
   <h2>Three steps. You can stop after any of them.</h2>
   <ol class="grid3">
-    <li class="item"><p class="n">1</p><h3>Free 20-minute triage</h3><p>You tell me where the project is. I tell you whether I can help and which offer fits.</p></li>
+    <li class="item"><p class="n">1</p><h3>Free 20-minute call</h3><p>You tell me where the project is. I tell you whether I can help and which offer fits.</p></li>
     <li class="item"><p class="n">2</p><h3>A project assessment</h3><p>I play the build, read the plan and talk to your team, then give you a written verdict. You keep it whatever you decide next.</p></li>
     <li class="item"><p class="n">3</p><h3>Ongoing help, if you want it</h3><p>Ongoing production help for studios, or mentoring for small teams. The assessment fee is credited against it.</p></li>
   </ol>
@@ -537,35 +565,22 @@ footer .w{padding-top:24px;padding-bottom:24px;font-size:13px;color:#A3A8AE}
         <li>Fixed scopes with an agreed end date</li>
         <li>Transparent prices, published on this page</li>
         <li>Creative direction stays with your team</li>
+        <li>Live sessions run Tuesday, Wednesday and Friday 07:00 to 11:00 UK time (afternoon in Tokyo, evening in Sydney) and weekday evenings from 16:00 UK (11:00 US Eastern, 08:00 US Pacific). Written work happens in between.</li>
       </ul></div>
-  </div>
-</section>
-
-<!-- ===== ABOUT ===== -->
-<section id="about" class="w sec">
-  <div class="about">
-    <img src="img/andrej-savcic.png" alt="Andrej Savcic">
-    <div>
-      <p class="kicker">About</p>
-      <h2>Hi, I'm Andrej.</h2>
-      <p>Over a decade shipping across VR, console, PC and mobile, at Sumo Digital, Maze Theory, 22cans, PRELOADED and UNIT9. I came into production through IT infrastructure and a computer-science-heavy degree, so I plan with a working understanding of what the build takes.</p>
-      <p>Through my studio LudoSpark I also run production training for studios and games R&amp;D for clients including Greenpeace. I work in English, Romanian and Italian.</p>
-      <blockquote>Most production work happens in the gap between what the plan says and what the build actually is. That gap is where my effort goes.</blockquote>
-    </div>
   </div>
 </section>
 
 <!-- ===== CONTACT ===== -->
 <section id="contact" class="dark">
   <div class="w contact">
-    <h2>Tell me where your project is. I'll tell you where it's heading.</h2>
+    <h2>Tell me where your project is. I'll tell you what it needs next.</h2>
     <div class="ctas">
-      <a class="btn btn-main" href="mailto:savcic.andrej@gmail.com?subject=Free%2020-minute%20triage">Book a free 20-minute triage</a>
+      <a class="btn btn-main" href="mailto:savcic.andrej@gmail.com?subject=Free%2020-minute%20call">Book a free 20-minute call</a>
       <a class="btn btn-line" href="mailto:savcic.andrej@gmail.com?subject=Project%20assessment">Ask about an assessment</a>
     </div>
     <p class="links"><a href="mailto:savcic.andrej@gmail.com">savcic.andrej@gmail.com</a> · <a href="https://linkedin.com/in/andrej-savcic">LinkedIn</a></p>
   </div>
-  <footer><div class="w">Andrej Savcic · games production consulting · Prices exclude VAT</div></footer>
+  <footer><div class="w">Andrej Savcic · games production consulting · <a href="mailto:savcic.andrej@gmail.com">savcic.andrej@gmail.com</a> · <a href="https://linkedin.com/in/andrej-savcic">LinkedIn</a></div></footer>
 </section>
 
 <script>
@@ -619,7 +634,7 @@ footer .w{padding-top:24px;padding-bottom:24px;font-size:13px;color:#A3A8AE}
     return b;
   });
 
-  var cur = 0, timer = null;
+  var cur = 0, timer = null, paused = false;
   var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   function show(i) {
     cur = i;
@@ -632,8 +647,22 @@ footer .w{padding-top:24px;padding-bottom:24px;font-size:13px;color:#A3A8AE}
     text.appendChild(document.createTextNode(' · ' + sl.title + ', ' + sl.studio));
   }
   function stop() { clearInterval(timer); timer = null; }
-  function start() { if (!timer && !still) timer = setInterval(function () { show((cur + 1) % slides.length); }, 4500); }
+  function start() { if (!timer && !still && !paused) timer = setInterval(function () { show((cur + 1) % slides.length); }, 4500); }
   function restart() { stop(); start(); }
+  var pause = document.createElement('button');
+  pause.type = 'button';
+  pause.className = 'pause';
+  function paintPause() {
+    pause.setAttribute('aria-label', paused ? 'Play slideshow' : 'Pause slideshow');
+    pause.innerHTML = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="' + (paused ? 'M8 5v14l11-7z' : 'M7 5h4v14H7zM13 5h4v14h-4z') + '"/></svg>';
+  }
+  pause.addEventListener('click', function () {
+    paused = !paused;
+    paintPause();
+    if (paused) stop(); else start();
+  });
+  paintPause();
+  if (!still) dots.insertBefore(pause, dots.firstChild);
   ['prev', 'next'].forEach(function (dir) {
     var b = document.createElement('button');
     b.type = 'button';
@@ -688,6 +717,14 @@ footer .w{padding-top:24px;padding-bottom:24px;font-size:13px;color:#A3A8AE}
     d.replaceWith(btn);
   });
 })();
+
+// Hero buttons pick the matching audience tab
+document.querySelectorAll('[data-pick]').forEach(function (a) {
+  a.addEventListener('click', function () {
+    var t = document.querySelector('[data-tab="' + a.dataset.pick + '"]');
+    if (t) t.click();
+  });
+});
 
 // Studio / indie tabs
 document.querySelectorAll('[data-tab]').forEach(function (btn) {
