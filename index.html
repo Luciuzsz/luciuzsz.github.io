@@ -72,6 +72,8 @@ nav a{text-decoration:none}
 nav a:not(.pill):hover{color:var(--accent-light)}
 nav .pill{background:var(--accent);color:var(--white);font-weight:600;padding:15px 28px;border-radius:8px;white-space:nowrap;text-align:center;transition:filter .15s}
 nav .pill:hover{filter:brightness(1.08)}
+nav .pill.pill-line{background:transparent;border:1.5px solid var(--paper);color:var(--paper);padding:13.5px 26.5px;margin-right:-20px}
+nav .pill.pill-line:hover{background:var(--paper);color:var(--ink);filter:none}
 
 /* hero */
 .hero{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(40px,6vw,88px);align-items:center;padding-top:clamp(8px,1.5vw,20px);padding-bottom:clamp(40px,5vw,64px)}
@@ -252,10 +254,16 @@ footer .w{padding-top:24px;padding-bottom:24px;font-size:13px;color:#A3A8AE}
   .hero h1{margin-bottom:8px}
 }
 
-dialog.mail{width:min(440px,calc(100% - 32px));padding:32px 28px 28px;border:1px solid var(--line);border-radius:var(--radius);background:var(--white);color:var(--ink);box-shadow:0 30px 80px -20px rgba(0,0,0,.5)}
+dialog.mail{width:min(520px,calc(100% - 32px));max-height:calc(100dvh - 32px);overflow:auto;padding:32px 28px 28px;border:1px solid var(--line);border-radius:var(--radius);background:var(--white);color:var(--ink);box-shadow:0 30px 80px -20px rgba(0,0,0,.5)}
 dialog.mail::backdrop{background:rgba(17,20,24,.65)}
 .mail h3{font-size:26px;margin:0 40px 8px 0}
 .mail .mail-addr{margin:0 0 20px;font-size:18px;color:var(--text);word-break:break-all;user-select:all}
+.mail .mail-intro{margin:0 0 18px;font-size:16px;color:var(--text)}
+.mail .mail-form{display:flex;flex-direction:column;gap:6px;margin:0 0 22px}
+.mail .mail-form label{margin-top:8px;font-weight:600;font-size:15px}
+.mail .mail-form input,.mail .mail-form select,.mail .mail-form textarea{width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:8px;background:var(--white);color:var(--ink);font:inherit;font-size:16px}
+.mail .mail-form textarea{resize:vertical;min-height:84px}
+.mail .linklike{align-self:center;margin-top:4px;padding:6px;background:none;border:0;font:inherit;font-size:15px;color:var(--text);text-decoration:underline;cursor:pointer}
 .mail .mail-actions{display:flex;flex-direction:column;gap:10px}
 .mail .mail-actions .alt{background:var(--white);border:1.5px solid var(--ink);color:var(--ink);font:inherit;font-weight:600;cursor:pointer}
 .mail .mail-actions .alt:hover{background:var(--ink);color:var(--paper);filter:none}
@@ -310,6 +318,7 @@ footer .fine{margin:10px 0 0;font-size:12px;color:#8A9096}
       <a class="hide" href="#work">Work</a>
       <a class="hide" href="#about">About</a>
       <a class="hide" href="#offers">Offers</a>
+      <a class="pill pill-line hide email-link" href="mailto:savcic.andrej@gmail.com?subject=Enquiry">Email me</a>
       <a class="pill" href="https://cal.com/andrej-savcic/20min" target="_blank" rel="noopener">Book a free call</a>
     </nav>
   </header>
@@ -867,61 +876,79 @@ document.querySelectorAll('[data-pick]').forEach(function (a) {
   }, { passive: true });
 })();
 
-// Email links open a small chooser: email app, Gmail or copy the address
+// Email links open a short form; the email is composed on this page and nothing is sent from it
 (function () {
   var dlg = document.createElement('dialog');
   dlg.className = 'mail';
   dlg.setAttribute('aria-label', 'Email me');
   dlg.innerHTML = '<form method="dialog"><button class="close" aria-label="Close">&times;</button></form>' +
-    '<h3>Email me</h3><p class="mail-addr"></p><div class="mail-actions">' +
+    '<h3>Email me</h3><p class="mail-addr"></p>' +
+    '<p class="mail-intro">Fill in a few details and your email is ready to send. Nothing is sent from this page.</p>' +
+    '<div class="mail-form">' +
+    '<label for="mf-name">Your name</label><input id="mf-name" type="text" autocomplete="name">' +
+    '<label for="mf-team">Studio or team</label><input id="mf-team" type="text" autocomplete="organization">' +
+    '<label for="mf-stage">Project stage</label><select id="mf-stage"><option value="">Choose one</option>' +
+    '<option>Concept</option><option>Prototype</option><option>Vertical slice</option><option>In production</option><option>Launching</option></select>' +
+    '<label for="mf-help">What would you like help with?</label><textarea id="mf-help" rows="3"></textarea>' +
+    '<label for="mf-link">Link to your game, deck or website (optional)</label><input id="mf-link" type="url" inputmode="url" autocomplete="url">' +
+    '</div>' +
+    '<div class="mail-actions">' +
     '<a class="btn btn-main" data-act="app">Open in your email app</a>' +
     '<a class="btn alt" data-act="gmail" target="_blank" rel="noopener">Open in Gmail</a>' +
-    '<button type="button" class="btn alt" data-act="copy">Copy address</button></div>';
+    '<button type="button" class="btn alt" data-act="copy">Copy message</button></div>' +
+    '<button type="button" class="linklike" data-act="addr">Copy address only</button>';
   document.body.appendChild(dlg);
   dlg.addEventListener('click', function (e) { if (e.target === dlg) dlg.close(); });
-  var addrEl = dlg.querySelector('.mail-addr');
-  var appEl = dlg.querySelector('[data-act="app"]');
-  var gmailEl = dlg.querySelector('[data-act="gmail"]');
-  var copyEl = dlg.querySelector('[data-act="copy"]');
-  var address = '';
-  copyEl.addEventListener('click', function () {
+  var q = function (sel) { return dlg.querySelector(sel); };
+  var addrEl = q('.mail-addr'), appEl = q('[data-act="app"]'), gmailEl = q('[data-act="gmail"]');
+  var copyEl = q('[data-act="copy"]'), addrBtn = q('[data-act="addr"]');
+  var fields = { name: q('#mf-name'), team: q('#mf-team'), stage: q('#mf-stage'), help: q('#mf-help'), link: q('#mf-link') };
+  var address = '', subject = 'Enquiry';
+
+  function message() {
+    var lines = ['Hi Andrej,', ''];
+    [['Name', fields.name], ['Studio or team', fields.team], ['Project stage', fields.stage],
+     ['What I would like help with', fields.help], ['Link', fields.link]].forEach(function (f) {
+      var v = f[1].value.trim();
+      if (v) lines.push(f[0] + ': ' + v);
+    });
+    lines.push('', 'Thanks');
+    return lines.join('\n');
+  }
+  function refresh() {
+    var body = encodeURIComponent(message());
+    appEl.href = 'mailto:' + address + '?subject=' + subject + '&body=' + body;
+    gmailEl.href = 'https://mail.google.com/mail/?view=cm&to=' + address + '&su=' + subject + '&body=' + body;
+  }
+  Object.keys(fields).forEach(function (k) {
+    fields[k].addEventListener('input', refresh);
+    fields[k].addEventListener('change', refresh);
+  });
+  function copy(text, btn, idle) {
     function done(ok) {
-      copyEl.textContent = ok ? 'Copied' : 'Select the address above and press Ctrl+C';
-      setTimeout(function () { copyEl.textContent = 'Copy address'; }, 2400);
+      btn.textContent = ok ? 'Copied' : 'Select the text and press Ctrl+C';
+      setTimeout(function () { btn.textContent = idle; }, 2400);
     }
     if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(address).then(function () { done(true); }, function () { done(false); });
+      navigator.clipboard.writeText(text).then(function () { done(true); }, function () { done(false); });
     } else {
       done(false);
     }
-  });
+  }
+  copyEl.addEventListener('click', function () { copy('To: ' + address + '\nSubject: ' + decodeURIComponent(subject) + '\n\n' + message(), copyEl, 'Copy message'); });
+  addrBtn.addEventListener('click', function () { copy(address, addrBtn, 'Copy address only'); });
+
   document.querySelectorAll('.email-link').forEach(function (link) {
     link.addEventListener('click', function (e) {
       e.preventDefault();
       var parts = link.getAttribute('href').replace('mailto:', '').split('?');
-      var subject = '';
-      if (parts[1]) { var m = parts[1].match(/subject=([^&]*)/); if (m) subject = m[1]; }
+      var m = parts[1] && parts[1].match(/subject=([^&]*)/);
       address = parts[0];
+      subject = m ? m[1] : 'Enquiry';
       addrEl.textContent = address;
-      appEl.href = 'mailto:' + address + (subject ? '?subject=' + subject : '');
-      gmailEl.href = 'https://mail.google.com/mail/?view=cm&to=' + address + (subject ? '&su=' + subject : '');
+      refresh();
       dlg.showModal();
     });
-  });
-})();
-
-// "More work" opens and closes
-(function () {
-  var b = document.querySelector('.more-toggle');
-  var panel = document.getElementById('more-work');
-  if (!b || !panel) return;
-  var label = b.querySelector('span');
-  var count = panel.querySelectorAll('.card').length;
-  b.addEventListener('click', function () {
-    var open = b.getAttribute('aria-expanded') === 'true';
-    b.setAttribute('aria-expanded', open ? 'false' : 'true');
-    panel.hidden = open;
-    label.textContent = open ? 'Show ' + count + ' more projects' : 'Show fewer';
   });
 })();
 
