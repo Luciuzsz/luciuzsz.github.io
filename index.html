@@ -204,8 +204,8 @@ dialog.story::backdrop{background:rgba(17,20,24,.65)}
 .story .story-cta a::after{content:"\2197"}
 .story .story-cta a:hover{filter:brightness(1.08);transform:translateY(-1px)}
 .story .full b{color:var(--ink)}
-.story .close{position:absolute;top:14px;right:14px;z-index:2;width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:var(--paper);color:var(--ink);font-size:22px;line-height:1;cursor:pointer}
-.story .close:hover{background:var(--ink);color:var(--paper)}
+.story .close,.mail .close{position:absolute;top:14px;right:14px;z-index:2;width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:var(--paper);color:var(--ink);font-size:22px;line-height:1;cursor:pointer}
+.story .close:hover,.mail .close:hover{background:var(--ink);color:var(--paper)}
 @media (max-width:560px){
   .story .card{grid-template-columns:1fr;padding:20px}
   .story .card .pic{grid-column:1;grid-row:auto;max-width:240px;margin-bottom:16px}
@@ -236,7 +236,6 @@ dialog.story::backdrop{background:rgba(17,20,24,.65)}
 .contact{padding-top:var(--section);padding-bottom:var(--section)}
 .contact h2{font-size:clamp(32px,4.5vw,54px);line-height:1.05;max-width:900px}
 .contact .links{margin:28px 0 0}
-.contact .links .copy{padding:0;background:none;border:0;font:inherit;color:inherit;text-decoration:underline;cursor:pointer}
 footer{border-top:1px solid var(--line-dark)}
 footer .w{padding-top:24px;padding-bottom:24px;font-size:13px;color:#A3A8AE}
 
@@ -251,6 +250,13 @@ footer .w{padding-top:24px;padding-bottom:24px;font-size:13px;color:#A3A8AE}
   .hero h1{margin-bottom:8px}
 }
 
+dialog.mail{width:min(440px,calc(100% - 32px));padding:32px 28px 28px;border:1px solid var(--line);border-radius:var(--radius);background:var(--white);color:var(--ink);box-shadow:0 30px 80px -20px rgba(0,0,0,.5)}
+dialog.mail::backdrop{background:rgba(17,20,24,.65)}
+.mail h3{font-size:26px;margin:0 40px 8px 0}
+.mail .mail-addr{margin:0 0 20px;font-size:18px;color:var(--text);word-break:break-all;user-select:all}
+.mail .mail-actions{display:flex;flex-direction:column;gap:10px}
+.mail .mail-actions .alt{background:var(--white);border:1.5px solid var(--ink);color:var(--ink);font:inherit;font-weight:600;cursor:pointer}
+.mail .mail-actions .alt:hover{background:var(--ink);color:var(--paper);filter:none}
 .cta-band{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 32px;margin-top:40px;padding:28px 32px;background:var(--white);border:1px solid var(--line);border-radius:var(--radius)}
 .cta-band p{margin:0;font-family:var(--display);font-weight:800;font-size:clamp(20px,2.2vw,26px);line-height:1.2;max-width:34ch;text-wrap:balance}
 footer a{color:inherit}
@@ -657,11 +663,11 @@ footer .fine{margin:10px 0 0;font-size:12px;color:#8A9096}
     <h2>Tell me where your project is. I'll tell you what it needs next.</h2>
     <div class="ctas">
       <a class="btn btn-main" href="https://cal.com/andrej-savcic/20min" target="_blank" rel="noopener">Book a free 20-minute call</a>
-      <a class="btn btn-line" href="mailto:savcic.andrej@gmail.com?subject=Project%20assessment">Ask about an assessment</a>
+      <a class="btn btn-line email-link" href="mailto:savcic.andrej@gmail.com?subject=Project%20assessment">Ask about an assessment</a>
     </div>
-    <p class="links"><a href="mailto:savcic.andrej@gmail.com">savcic.andrej@gmail.com</a> · <a href="https://mail.google.com/mail/?view=cm&amp;to=savcic.andrej@gmail.com&amp;su=Free%2020-minute%20call" target="_blank" rel="noopener">Open in Gmail</a> · <button type="button" class="copy" data-copy="savcic.andrej@gmail.com">Copy address</button> · <a href="https://linkedin.com/in/andrej-savcic">LinkedIn</a></p>
+    <p class="links"><a class="email-link" href="mailto:savcic.andrej@gmail.com">savcic.andrej@gmail.com</a> · <a href="https://linkedin.com/in/andrej-savcic">LinkedIn</a></p>
   </div>
-  <footer><div class="w">Andrej Savcic · games production consulting · <a href="mailto:savcic.andrej@gmail.com">savcic.andrej@gmail.com</a> · <a href="https://linkedin.com/in/andrej-savcic">LinkedIn</a>
+  <footer><div class="w">Andrej Savcic · games production consulting · <a class="email-link" href="mailto:savcic.andrej@gmail.com">savcic.andrej@gmail.com</a> · <a href="https://linkedin.com/in/andrej-savcic">LinkedIn</a>
     <p class="fine">Client names refer to work delivered while employed by the studios listed above and are shown for reference only.</p></div></footer>
 </section>
 
@@ -849,21 +855,48 @@ document.querySelectorAll('[data-pick]').forEach(function (a) {
   }, { passive: true });
 })();
 
-// Copy the email address (falls back to selecting it)
-document.querySelectorAll('[data-copy]').forEach(function (b) {
-  var label = b.textContent;
-  b.addEventListener('click', function () {
+// Email links open a small chooser: email app, Gmail or copy the address
+(function () {
+  var dlg = document.createElement('dialog');
+  dlg.className = 'mail';
+  dlg.setAttribute('aria-label', 'Email me');
+  dlg.innerHTML = '<form method="dialog"><button class="close" aria-label="Close">&times;</button></form>' +
+    '<h3>Email me</h3><p class="mail-addr"></p><div class="mail-actions">' +
+    '<a class="btn btn-main" data-act="app">Open in your email app</a>' +
+    '<a class="btn alt" data-act="gmail" target="_blank" rel="noopener">Open in Gmail</a>' +
+    '<button type="button" class="btn alt" data-act="copy">Copy address</button></div>';
+  document.body.appendChild(dlg);
+  dlg.addEventListener('click', function (e) { if (e.target === dlg) dlg.close(); });
+  var addrEl = dlg.querySelector('.mail-addr');
+  var appEl = dlg.querySelector('[data-act="app"]');
+  var gmailEl = dlg.querySelector('[data-act="gmail"]');
+  var copyEl = dlg.querySelector('[data-act="copy"]');
+  var address = '';
+  copyEl.addEventListener('click', function () {
     function done(ok) {
-      b.textContent = ok ? 'Copied' : 'Press Ctrl+C to copy';
-      setTimeout(function () { b.textContent = label; }, 2200);
+      copyEl.textContent = ok ? 'Copied' : 'Select the address above and press Ctrl+C';
+      setTimeout(function () { copyEl.textContent = 'Copy address'; }, 2400);
     }
     if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(b.dataset.copy).then(function () { done(true); }, function () { done(false); });
+      navigator.clipboard.writeText(address).then(function () { done(true); }, function () { done(false); });
     } else {
       done(false);
     }
   });
-});
+  document.querySelectorAll('.email-link').forEach(function (link) {
+    link.addEventListener('click', function (e) {
+      e.preventDefault();
+      var parts = link.getAttribute('href').replace('mailto:', '').split('?');
+      var subject = '';
+      if (parts[1]) { var m = parts[1].match(/subject=([^&]*)/); if (m) subject = m[1]; }
+      address = parts[0];
+      addrEl.textContent = address;
+      appEl.href = 'mailto:' + address + (subject ? '?subject=' + subject : '');
+      gmailEl.href = 'https://mail.google.com/mail/?view=cm&to=' + address + (subject ? '&su=' + subject : '');
+      dlg.showModal();
+    });
+  });
+})();
 
 // "More work" opens and closes
 (function () {
