@@ -70,7 +70,8 @@ header{display:flex;justify-content:space-between;align-items:center;gap:16px;ma
 nav{display:flex;gap:36px;align-items:center;font-size:19px;font-weight:500}
 nav a{text-decoration:none}
 nav a:not(.pill):hover{color:var(--accent-light)}
-nav .pill{background:var(--paper);color:var(--ink);padding:15px 28px;border-radius:8px}
+nav .pill{background:var(--accent);color:var(--white);font-weight:600;padding:15px 28px;border-radius:8px;transition:filter .15s}
+nav .pill:hover{filter:brightness(1.08)}
 
 /* hero */
 .hero{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(40px,6vw,88px);align-items:center;padding-top:clamp(8px,1.5vw,20px);padding-bottom:clamp(40px,5vw,64px)}
