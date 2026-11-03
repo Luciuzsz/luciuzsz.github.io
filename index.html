@@ -260,6 +260,9 @@ dialog.mail::backdrop{background:rgba(17,20,24,.65)}
 .mail .mail-actions .alt{background:var(--white);border:1.5px solid var(--ink);color:var(--ink);font:inherit;font-weight:600;cursor:pointer}
 .mail .mail-actions .alt:hover{background:var(--ink);color:var(--paper);filter:none}
 .cta-band{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 32px;margin-top:40px;padding:28px 32px;background:var(--white);border:1px solid var(--line);border-radius:var(--radius)}
+.cta-actions{display:flex;flex-wrap:wrap;gap:12px}
+.btn-alt{background:transparent;border:1.5px solid var(--ink);color:var(--ink)}
+.btn-alt:hover{background:var(--ink);color:var(--paper);filter:none}
 .cta-band p{margin:0;font-family:var(--display);font-weight:800;font-size:clamp(20px,2.2vw,26px);line-height:1.2;max-width:34ch;text-wrap:balance}
 footer a{color:inherit}
 footer .fine{margin:10px 0 0;font-size:12px;color:#8A9096}
@@ -293,6 +296,7 @@ footer .fine{margin:10px 0 0;font-size:12px;color:#8A9096}
   .cta-band{flex-direction:column;align-items:stretch;text-align:center;padding:24px 20px}
   .cta-band p{max-width:none}
   .cta-band .btn{justify-content:center;padding-left:12px;padding-right:12px}
+  .cta-actions{flex-direction:column}
 }
 </style>
 </head>
@@ -498,7 +502,10 @@ footer .fine{margin:10px 0 0;font-size:12px;color:#8A9096}
 
   <div class="cta-band">
     <p>Seen something like your project? Book a free 20-minute call.</p>
-    <a class="btn btn-main" href="https://cal.com/andrej-savcic/20min" target="_blank" rel="noopener">Book a free 20-minute call</a>
+    <div class="cta-actions">
+      <a class="btn btn-main" href="https://cal.com/andrej-savcic/20min" target="_blank" rel="noopener">Book a free 20-minute call</a>
+      <a class="btn btn-alt email-link" href="mailto:savcic.andrej@gmail.com?subject=Enquiry">Email me</a>
+    </div>
   </div>
 </section>
 
@@ -624,7 +631,10 @@ footer .fine{margin:10px 0 0;font-size:12px;color:#8A9096}
 
   <div class="cta-band">
     <p>Not sure which offer fits? Book a free 20-minute call and I’ll tell you.</p>
-    <a class="btn btn-main" href="https://cal.com/andrej-savcic/20min" target="_blank" rel="noopener">Book a free 20-minute call</a>
+    <div class="cta-actions">
+      <a class="btn btn-main" href="https://cal.com/andrej-savcic/20min" target="_blank" rel="noopener">Book a free 20-minute call</a>
+      <a class="btn btn-alt email-link" href="mailto:savcic.andrej@gmail.com?subject=Enquiry">Email me</a>
+    </div>
   </div>
 </section>
 
@@ -665,7 +675,7 @@ footer .fine{margin:10px 0 0;font-size:12px;color:#8A9096}
     <h2>Tell me where your project is. I'll tell you what it needs next.</h2>
     <div class="ctas">
       <a class="btn btn-main" href="https://cal.com/andrej-savcic/20min" target="_blank" rel="noopener">Book a free 20-minute call</a>
-      <a class="btn btn-line email-link" href="mailto:savcic.andrej@gmail.com?subject=Project%20assessment">Ask about an assessment</a>
+      <a class="btn btn-line email-link" href="mailto:savcic.andrej@gmail.com?subject=Enquiry">Email me</a>
     </div>
     <p class="links"><a class="email-link" href="mailto:savcic.andrej@gmail.com">savcic.andrej@gmail.com</a> · <a href="https://linkedin.com/in/andrej-savcic">LinkedIn</a></p>
   </div>
