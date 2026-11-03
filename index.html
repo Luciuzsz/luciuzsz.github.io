@@ -65,15 +65,15 @@ p,li,figcaption,summary{text-wrap:balance}
 .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:36px}
 
 /* header */
-header{display:flex;justify-content:space-between;align-items:center;gap:16px;max-width:1240px;margin:0 auto;padding:28px var(--gutter)}
-.logo{font-family:var(--display);font-weight:800;font-size:26px;text-decoration:none}
-nav{display:flex;gap:36px;align-items:center;font-size:17px;font-weight:500}
+header{display:flex;justify-content:space-between;align-items:center;gap:16px;max-width:1240px;margin:0 auto;padding:22px var(--gutter)}
+.logo{font-family:var(--display);font-weight:800;font-size:34px;letter-spacing:-0.02em;text-decoration:none}
+nav{display:flex;gap:36px;align-items:center;font-size:19px;font-weight:500}
 nav a{text-decoration:none}
 nav a:not(.pill):hover{color:var(--accent-light)}
-nav .pill{background:var(--paper);color:var(--ink);padding:14px 24px;border-radius:8px}
+nav .pill{background:var(--paper);color:var(--ink);padding:15px 28px;border-radius:8px}
 
 /* hero */
-.hero{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(40px,6vw,88px);align-items:center;padding-top:clamp(32px,5vw,64px);padding-bottom:clamp(40px,5vw,64px)}
+.hero{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(40px,6vw,88px);align-items:center;padding-top:clamp(8px,1.5vw,20px);padding-bottom:clamp(40px,5vw,64px)}
 .hero h1{font-size:clamp(44px,5.2vw,72px);line-height:1.02;letter-spacing:-0.025em}
 .hero .sub{font-size:clamp(18px,1.6vw,22px);color:#C9CCD0;max-width:56ch;margin:28px 0 0}
 .hero .small{font-size:15px;color:#A3A8AE;margin:20px 0 0;max-width:56ch}
@@ -90,6 +90,9 @@ nav .pill{background:var(--paper);color:var(--ink);padding:14px 24px;border-radi
 .hero .slides .nav svg{width:40px;height:40px;padding:8px;border-radius:50%;background:rgba(13,16,19,.55);transition:background .15s}
 .hero .slides .nav:hover svg{background:var(--accent)}
 @media (hover:none){.hero .slides .nav{opacity:1;width:18%}}
+.hero .stats{grid-column:1/-1;list-style:none;margin:48px 0 0;padding:28px 0 0;border-top:1px solid var(--line-dark);display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.hero .stats b{display:block;font-family:var(--display);font-weight:800;font-size:clamp(20px,2.1vw,28px);line-height:1.1;letter-spacing:-0.01em;color:var(--accent-light)}
+.hero .stats span{display:block;margin-top:6px;font-size:15px;color:#C9CCD0}
 .hero .dots{display:flex;flex-wrap:wrap;align-items:center;gap:2px;min-width:0}
 .hero > div,.hero figure{min-width:0}
 .hero .dots .pause{display:grid;place-items:center;width:32px;height:32px;margin-right:8px;color:#F5F5F2}
@@ -103,7 +106,7 @@ nav .pill{background:var(--paper);color:var(--ink);padding:14px 24px;border-radi
 /* studios strip */
 .strip{background:var(--white);border-bottom:1px solid var(--line)}
 .strip .w{display:flex;flex-direction:column;gap:18px;padding-top:28px;padding-bottom:28px}
-.strip .row{display:grid;grid-template-columns:200px 1fr;gap:8px 24px;align-items:baseline}
+.strip .row{display:grid;grid-template-columns:210px 1fr;gap:8px 24px;align-items:baseline}
 .strip .names{display:flex;flex-wrap:wrap;gap:6px 32px}
 .strip .names span{white-space:nowrap}
 .strip .marquee{display:block;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent)}
@@ -235,6 +238,7 @@ footer .w{padding-top:24px;padding-bottom:24px;font-size:13px;color:#A3A8AE}
 .cta-band{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 32px;margin-top:40px;padding:28px 32px;background:var(--white);border:1px solid var(--line);border-radius:var(--radius)}
 .cta-band p{margin:0;font-family:var(--display);font-weight:800;font-size:clamp(20px,2.2vw,26px);line-height:1.2;max-width:34ch;text-wrap:balance}
 footer a{color:inherit}
+footer .fine{margin:10px 0 0;font-size:12px;color:#8A9096}
 
 /* tablets */
 @media (max-width:1100px){
@@ -249,6 +253,7 @@ footer a{color:inherit}
 @media (max-width:860px){
   nav .hide{display:none}
   .hero{grid-template-columns:1fr}
+  .hero .stats{grid-template-columns:1fr 1fr;gap:20px;margin-top:32px}
   .hero .sub{font-size:18px}
   .ctas{flex-direction:column}
   .ctas .btn{justify-content:center}
@@ -279,7 +284,7 @@ footer a{color:inherit}
     <div>
       <p class="kicker">Games producer · remote, worldwide</p>
       <h1>Make your launch date real.</h1>
-      <p class="sub">Senior games producer with 10+ years shipping across VR, console, PC and mobile, working with studios, publishers and indie teams. I take projects from contract to vertical slice, through certification and first-party pipelines, to launch, with milestones delivered on time and within budget. I led Thief VR with 30+ developers and the PC workstream on Forza Motorsport (2023), delivered ahead of schedule.</p>
+      <p class="sub">I’m a games producer: I plan the work, keep your team and publisher aligned, and lead delivery from brief to launch. With 10+ years shipping across VR, console, PC and mobile, I take projects from contract to vertical slice and through certification and first-party pipelines, with milestones on time and within budget.</p>
       <div class="ctas">
         <a class="btn btn-main" href="#offers" data-pick="studio">I’m a studio or publisher</a>
         <a class="btn btn-line" href="#offers" data-pick="indie">I’m an indie team</a>
@@ -290,14 +295,19 @@ footer a{color:inherit}
       <img src="img/thief-vr.jpg" alt="Thief VR: Legacy of Shadow key art">
       <figcaption><strong>Lead Producer</strong> · Thief VR: Legacy of Shadow, Maze Theory</figcaption>
     </figure>
+    <ul class="stats">
+      <li><b>30+ developers</b><span>Thief VR, from contract to vertical slice</span></li>
+      <li><b>Ahead of schedule</b><span>Forza Motorsport (2023), PC workstream</span></li>
+      <li><b>2 weeks → 3 days</b><span>licensor review turnaround</span></li>
+      <li><b>30% savings</b><span>on outsourcing, at the same quality</span></li>
+    </ul>
   </section>
 </div>
 
 <section class="strip" aria-label="Employers and clients">
   <div class="w">
-    <div class="row"><span class="label">Employers</span><div class="names"><span>Sumo Digital</span><span>Maze Theory</span><span>22cans</span><span>PRELOADED</span><span>UNIT9</span></div></div>
-    <div class="row"><span class="label">Client work, through my employers</span><div class="names marquee"><div class="track"><div class="set"><span>Turn 10</span><span>Curve Games</span><span>Microsoft</span><span>EA</span><span>Google</span><span>Mercedes-Benz</span><span>Nissan</span><span>McDonald’s</span><span>Verizon</span><span>BBC R&amp;D</span><span>Discovery</span><span>National Geographic</span><span>R/GA</span><span>London Transport Museum</span><span>Natural History Museum of Utah</span><span>University of Oxford</span><span>OMY</span></div><div class="set" aria-hidden="true"><span>Turn 10</span><span>Curve Games</span><span>Microsoft</span><span>EA</span><span>Google</span><span>Mercedes-Benz</span><span>Nissan</span><span>McDonald’s</span><span>Verizon</span><span>BBC R&amp;D</span><span>Discovery</span><span>National Geographic</span><span>R/GA</span><span>London Transport Museum</span><span>Natural History Museum of Utah</span><span>University of Oxford</span><span>OMY</span></div></div></div></div>
-    <p class="note">Client work delivered while employed by the studios above. Names are shown for reference only and do not imply endorsement.</p>
+    <div class="row"><span class="label">Delivered at</span><div class="names"><span>Sumo Digital</span><span>Maze Theory</span><span>22cans</span><span>PRELOADED</span><span>UNIT9</span></div></div>
+    <div class="row"><span class="label">For clients including</span><div class="names marquee"><div class="track"><div class="set"><span>Turn 10</span><span>Curve Games</span><span>Microsoft</span><span>EA</span><span>Google</span><span>Mercedes-Benz</span><span>Nissan</span><span>McDonald’s</span><span>Verizon</span><span>BBC R&amp;D</span><span>Discovery</span><span>National Geographic</span><span>R/GA</span><span>London Transport Museum</span><span>Natural History Museum of Utah</span><span>University of Oxford</span><span>OMY</span></div><div class="set" aria-hidden="true"><span>Turn 10</span><span>Curve Games</span><span>Microsoft</span><span>EA</span><span>Google</span><span>Mercedes-Benz</span><span>Nissan</span><span>McDonald’s</span><span>Verizon</span><span>BBC R&amp;D</span><span>Discovery</span><span>National Geographic</span><span>R/GA</span><span>London Transport Museum</span><span>Natural History Museum of Utah</span><span>University of Oxford</span><span>OMY</span></div></div></div></div>
   </div>
 </section>
 
@@ -617,7 +627,8 @@ footer a{color:inherit}
     </div>
     <p class="links"><a href="mailto:savcic.andrej@gmail.com">savcic.andrej@gmail.com</a> · <a href="https://linkedin.com/in/andrej-savcic">LinkedIn</a></p>
   </div>
-  <footer><div class="w">Andrej Savcic · games production consulting · <a href="mailto:savcic.andrej@gmail.com">savcic.andrej@gmail.com</a> · <a href="https://linkedin.com/in/andrej-savcic">LinkedIn</a></div></footer>
+  <footer><div class="w">Andrej Savcic · games production consulting · <a href="mailto:savcic.andrej@gmail.com">savcic.andrej@gmail.com</a> · <a href="https://linkedin.com/in/andrej-savcic">LinkedIn</a>
+    <p class="fine">Client names refer to work delivered while employed by the studios listed above and are shown for reference only.</p></div></footer>
 </section>
 
 <script>
@@ -763,6 +774,25 @@ document.querySelectorAll('[data-pick]').forEach(function (a) {
     if (t) t.click();
   });
 });
+
+// Address bar follows the section being read (no jump, no history entries)
+(function () {
+  var sections = ['work', 'about', 'offers', 'contact']
+    .map(function (id) { return document.getElementById(id); })
+    .filter(Boolean);
+  var current = null, timer = null;
+  function sync() {
+    timer = null;
+    var line = window.innerHeight * 0.35, id = '';
+    sections.forEach(function (sec) { if (sec.getBoundingClientRect().top <= line) id = sec.id; });
+    if (id === current) return;
+    current = id;
+    try { history.replaceState(null, '', id ? '#' + id : location.pathname + location.search); } catch (e) { /* sandboxed frame */ }
+  }
+  window.addEventListener('scroll', function () {
+    if (!timer) timer = setTimeout(sync, 60);
+  }, { passive: true });
+})();
 
 // Studio / indie tabs
 document.querySelectorAll('[data-tab]').forEach(function (btn) {
