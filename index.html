@@ -159,6 +159,12 @@ nav .pill:hover{filter:brightness(1.08)}
 .work.featured .card .hook{font-size:18px}
 .work.featured .card .meta{font-size:13px}
 .more-head{font-size:26px;margin:56px 0 24px}
+.work[hidden]{display:none}
+#more-work{margin-top:24px}
+.more-toggle{display:flex;align-items:center;justify-content:center;gap:10px;margin:32px auto 0;min-height:52px;padding:0 28px;background:var(--white);border:1.5px solid var(--ink);border-radius:8px;color:var(--ink);font:600 17px var(--body);cursor:pointer;transition:background .15s,color .15s}
+.more-toggle:hover{background:var(--ink);color:var(--paper)}
+.more-toggle svg{width:20px;height:20px;transition:transform .2s}
+.more-toggle[aria-expanded="true"] svg{transform:rotate(180deg)}
 .card{display:flex;flex-direction:column;background:var(--white);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;transition:box-shadow .2s,transform .2s}
 .work .card{cursor:pointer}
 .card:hover{box-shadow:var(--shadow);transform:translateY(-2px)}
@@ -405,8 +411,11 @@ footer .fine{margin:10px 0 0;font-size:12px;color:#8A9096}
     </article>
 
   </div>
-  <h3 class="more-head">More work</h3>
-  <div class="work">
+  <button type="button" class="more-toggle" aria-expanded="false" aria-controls="more-work">
+    <span>Show 6 more projects</span>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+  </button>
+  <div class="work" id="more-work" hidden>
 
     <article class="card">
       <div class="pic"><img src="img/storm-vr.jpg" alt="Storm VR"></div>
@@ -852,6 +861,21 @@ document.querySelectorAll('[data-copy]').forEach(function (b) {
     }
   });
 });
+
+// "More work" opens and closes
+(function () {
+  var b = document.querySelector('.more-toggle');
+  var panel = document.getElementById('more-work');
+  if (!b || !panel) return;
+  var label = b.querySelector('span');
+  var count = panel.querySelectorAll('.card').length;
+  b.addEventListener('click', function () {
+    var open = b.getAttribute('aria-expanded') === 'true';
+    b.setAttribute('aria-expanded', open ? 'false' : 'true');
+    panel.hidden = open;
+    label.textContent = open ? 'Show ' + count + ' more projects' : 'Show fewer';
+  });
+})();
 
 // Studio / indie tabs
 document.querySelectorAll('[data-tab]').forEach(function (btn) {
