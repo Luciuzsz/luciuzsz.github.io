@@ -297,6 +297,9 @@ footer .fine{margin:10px 0 0;font-size:12px;color:#8A9096}
 .st.opt:before{background:var(--paper);border:2px dashed var(--accent)}
 .st b{display:block;margin:0 0 4px;font-family:var(--mono);font-weight:500;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
 .st span{color:var(--text)}
+.st .sum{display:none}
+.about-more{display:none}
+.swipe-dots{display:none}
 .rail-note{margin:6px 0 28px;color:var(--muted);font-size:15px}
 .tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
 .tile{padding:18px;background:var(--white);border:1px solid var(--line);border-radius:var(--radius)}
@@ -362,6 +365,62 @@ footer .fine{margin:10px 0 0;font-size:12px;color:#8A9096}
 }
 @media (min-width:861px){
   .menu-btn,.mobile-menu,.dock{display:none!important}
+}
+
+@media (max-width:860px){
+  .hero .ctas{flex-direction:row;gap:8px;margin-top:24px}
+  .hero .ctas .btn{flex:1;min-height:56px;padding:10px 8px;font-size:15px;line-height:1.2}
+  .hero .stats{gap:14px}
+  .hero .stats b{font-size:20px}
+  .hero .stats span{font-size:13px}
+  .hero .stats-label{margin-top:24px;padding-top:18px}
+  .hero figcaption{font-size:14px}
+  .hero .dots button{width:20px}
+  .hero .dots .pause{width:40px;height:40px}
+  .pull{padding:22px 20px;font-size:21px;margin-top:32px}
+  .offer{grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"head price" "body body" "link link";gap:0 12px;align-items:center;padding:16px 18px;cursor:pointer}
+  .offer > div:first-child{grid-area:head}
+  .offer > div:last-child{display:contents}
+  .offer h3{font-size:19px;margin-bottom:2px}
+  .offer .price{grid-area:price;margin:0;font-size:18px;text-align:right;white-space:nowrap}
+  .offer .price::after{content:"";display:inline-block;width:8px;height:8px;margin-left:10px;border-right:2px solid var(--muted);border-bottom:2px solid var(--muted);transform:rotate(45deg) translateY(-2px);transition:transform .2s}
+  .offer.open .price::after{transform:rotate(-135deg) translateY(-2px)}
+  .offer .body{grid-area:body;display:none;margin:12px 0 0}
+  .offer > div:last-child a{grid-area:link;display:none;margin-top:12px}
+  .offer.open .body{display:block}
+  .offer.open > div:last-child a{display:inline-block}
+  .swipe{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;margin-inline:calc(var(--gutter) * -1);padding:2px var(--gutter) 6px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .swipe::-webkit-scrollbar{display:none}
+  .swipe > *{flex:0 0 78%;scroll-snap-align:start;min-width:0}
+  .swipe-dots{display:flex;gap:6px;justify-content:center;margin:10px 0 4px}
+  .swipe-dots s{display:block;width:18px;height:4px;border-radius:2px;background:var(--line)}
+  .swipe-dots s.on{background:var(--accent)}
+  .st{cursor:pointer;padding:14px 44px 14px 16px}
+  .st .sum{display:block;font-style:normal;color:var(--text)}
+  .st span{display:none;margin-top:8px}
+  .st.open span{display:block}
+  .st::after{content:"+";position:absolute;right:16px;top:12px;font-size:24px;line-height:1;color:var(--accent)}
+  .st.open::after{content:"\2013"}
+  .tiles{grid-template-columns:1fr 1fr;gap:8px}
+  .tile{padding:14px}
+  .tile span{display:none}
+  .tile svg{margin-bottom:6px}
+  .tile.wide{grid-column:1/-1}
+  .about{display:block;padding:20px}
+  .about img{float:left;width:88px;height:88px;margin:0 16px 6px 0}
+  .about h2{margin-bottom:10px}
+  .about.collapsed .about-rest{display:none}
+  .about-more{display:inline-block;margin-top:4px;padding:12px 0;background:none;border:0;font:inherit;font-weight:600;color:var(--accent);cursor:pointer}
+  .fit .grid2{gap:10px}
+  .fit .grid2 > div{padding:0}
+  .fit .grid2 > div h2{position:relative;margin:0;padding:18px 48px 18px 20px;font-size:21px;cursor:pointer}
+  .fit .grid2 > div h2::after{content:"+";position:absolute;right:20px;top:14px;font-family:var(--body);font-size:26px;font-weight:400;line-height:1;color:var(--accent)}
+  .fit .grid2 > div.open h2::after{content:"\2013"}
+  .fit .grid2 > div ul{display:none;padding:0 20px 20px 40px}
+  .fit .grid2 > div.open ul{display:flex}
+  .cta-band{margin-top:28px;padding:16px;gap:10px}
+  .cta-band p{font-size:18px}
+  .contact .links a,footer .w a{display:inline-block;padding:12px 4px}
 }
 </style>
 </head>
@@ -588,7 +647,7 @@ footer .fine{margin:10px 0 0;font-size:12px;color:#8A9096}
 <section class="w sec">
   <p class="kicker">Proof you can check</p>
   <h2>Credits you can verify.</h2>
-  <div class="grid3">
+  <div class="grid3 swipe">
     <div class="item"><h3>Every credit is public</h3><p>Each project above links to its trailer or published work.</p></div>
     <div class="item"><h3>Recognised work</h3><p>Thief VR, published by Vertigo Games with <span class="nb">Eidos-Montréal</span>. Forza Motorsport (2023) with Turn 10. Storm VR, Pixel Award People’s Champ 2017.</p></div>
     <div class="item"><h3>Teams and budgets</h3><p>Teams of up to 40 and budgets up to £4M, across VR, console, PC and mobile.</p></div>
@@ -603,8 +662,10 @@ footer .fine{margin:10px 0 0;font-size:12px;color:#8A9096}
       <p class="kicker">About</p>
       <h2>Hi, I'm Andrej.</h2>
       <p>Over a decade shipping across VR, console, PC and mobile, at Sumo Digital, Maze Theory, 22cans, PRELOADED and UNIT9. I came into production through IT infrastructure, including projects for Google, and a computer science degree, so I plan around what the build actually takes. My background in anthropology helps teams understand the why behind their work, not just the what.</p>
+      <div class="about-rest">
       <p>I also use AI tools in my own production work and help teams adopt them without breaking their pipeline. Through my studio LudoSpark I run production training for studios and games R&amp;D for clients including Greenpeace. I'm based in Bucharest and work in English, Romanian and Italian.</p>
       <blockquote>Most production work happens in the gap between what the plan says and what the build actually is. That gap is where my effort goes.</blockquote>
+      </div>
     </div>
   </div>
 </section>
@@ -628,7 +689,7 @@ footer .fine{margin:10px 0 0;font-size:12px;color:#8A9096}
   <div class="sub" data-sub="offers" role="tabpanel">
     <p class="kicker">When to bring me in</p>
     <h2>Most studios call at one of these moments.</h2>
-    <ol class="moments">
+    <ol class="moments swipe">
       <li>A publisher asked to see a vertical slice.</li>
       <li>You’ve signed a publisher deal and the first milestone has a date.</li>
       <li>Licensor approvals need to fit your milestone plan.</li>
@@ -642,7 +703,7 @@ footer .fine{margin:10px 0 0;font-size:12px;color:#8A9096}
       <p>Every engagement starts with an assessment. If you keep me on, its fee comes off the first invoice, and the assessment comes with a money-back guarantee.</p>
     </div>
     <div class="offers">
-      <div class="offer">
+      <div class="offer open">
         <div><p class="kicker">Start here</p><h3>Project assessment</h3><p class="fmt">Fixed price · 2 weeks</p></div>
         <p class="body">I play your build, read your plan, schedule, budget and pitch, and interview your leads. You get a written report: where you really are, the five biggest risks, what to cut, and a plan to your next milestone. Plus a 90-minute call. Money-back guarantee.</p>
         <div><span class="price">EUR 2,900</span><a href="#contact">Book an assessment</a></div>
@@ -676,10 +737,10 @@ footer .fine{margin:10px 0 0;font-size:12px;color:#8A9096}
     <h2>How an engagement runs.</h2>
     <p class="lead">Start with a free 20-minute call, then:</p>
     <ol class="rail">
-      <li class="st"><b>Discover</b><span>Kick-off call. We agree three outcomes, and you share the build, plan, schedule, budget, any publisher or licensor agreements, and time with your leads. Everything stays under NDA, and I work in your tools: Jira, Confluence, spreadsheets or whatever you already use.</span></li>
-      <li class="st"><b>Assess</b><span>I play the build, read every document and interview your leads, then map the plan against the build, the budget and the runway.</span></li>
-      <li class="st"><b>Recommend</b><span>You get a written report and a 90-minute walkthrough call. Each finding has an owner, a recommendation and the decision you need to make. You choose what to act on, and creative direction stays with your team.</span></li>
-      <li class="st opt"><b>Support · optional</b><span>I stay on as Producer on call or Embedded producer, with a steady rhythm of sessions and a monthly review. Everything lives in your tools, so your team owns it when we finish.</span></li>
+      <li class="st"><b>Discover</b><i class="sum">Kick-off call, outcomes agreed, access shared.</i><span>Kick-off call. We agree three outcomes, and you share the build, plan, schedule, budget, any publisher or licensor agreements, and time with your leads. Everything stays under NDA, and I work in your tools: Jira, Confluence, spreadsheets or whatever you already use.</span></li>
+      <li class="st"><b>Assess</b><i class="sum">I play, read and interview your leads.</i><span>I play the build, read every document and interview your leads, then map the plan against the build, the budget and the runway.</span></li>
+      <li class="st"><b>Recommend</b><i class="sum">A written report and a walkthrough call.</i><span>You get a written report and a 90-minute walkthrough call. Each finding has an owner, a recommendation and the decision you need to make. You choose what to act on, and creative direction stays with your team.</span></li>
+      <li class="st opt"><b>Support · optional</b><i class="sum">Ongoing help, with a handover at the end.</i><span>I stay on as Producer on call or Embedded producer, with a steady rhythm of sessions and a monthly review. Everything lives in your tools, so your team owns it when we finish.</span></li>
     </ol>
     <p class="rail-note">The first three steps are the two-week project assessment. You keep the report whatever you decide next.</p>
     <div class="item"><h3>Success, written down</h3><p>In the first call we write down three outcomes for your project, in your terms. For example: “Milestone 3 accepted by the publisher on 14 March”, “Scope fits the remaining runway”, “Port passes certification on first submission”. Every report and review checks progress against them.</p></div>
@@ -692,7 +753,7 @@ footer .fine{margin:10px 0 0;font-size:12px;color:#8A9096}
       <div class="tile wide"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg><b>What a publisher, investor or licensor is likely to ask first</b></div>
     </div>
     <h3 class="sub-head">Once I’m on the team</h3>
-    <ul class="grid3">
+    <ul class="grid3 swipe">
       <li class="item"><h3>A steady rhythm</h3><p>Live sessions in fixed weekly slots, a short written status note every week, and a risk register your whole team can see.</p></li>
       <li class="item"><h3>A monthly review</h3><p>Once a month we check progress against the outcomes we agreed. You decide whether to continue, adjust the plan or move to a smaller one.</p></li>
       <li class="item"><h3>A clean handover</h3><p>Every plan, process and document lives in your tools from day one, so your team owns it when the engagement ends.</p></li>
@@ -723,7 +784,7 @@ footer .fine{margin:10px 0 0;font-size:12px;color:#8A9096}
     <p class="explain"><strong>What does a producer do?</strong> I take your idea from a napkin sketch to a shipped game. I plan the work, keep everyone aligned and lead delivery from brief to launch.</p>
     <p class="kicker">When to bring me in</p>
     <h2>Most indie teams call at one of these moments.</h2>
-    <ol class="moments">
+    <ol class="moments swipe">
       <li>You’re about to send your first publisher pitch.</li>
       <li>You want your pitch to land with publishers.</li>
       <li>Your scope and your runway need to line up.</li>
@@ -737,7 +798,7 @@ footer .fine{margin:10px 0 0;font-size:12px;color:#8A9096}
       <p>Small teams need an honest read on where they are, and someone who holds them to their own plan for a few hours a month. The assessment comes with a money-back guarantee.</p>
     </div>
     <div class="offers">
-      <div class="offer">
+      <div class="offer open">
         <div><p class="kicker">Start here</p><h3>Project assessment for small teams</h3><p class="fmt">Fixed price · 1 week</p></div>
         <p class="body">I play your build and read your plan and pitch. Written notes on where you really are, what a publisher will question first, and what to fix, plus a 60-minute call.</p>
         <div><span class="price">EUR 750</span><a href="#contact">Book an assessment</a></div>
@@ -760,10 +821,10 @@ footer .fine{margin:10px 0 0;font-size:12px;color:#8A9096}
     <h2>How an engagement runs.</h2>
     <p class="lead">Start with a free 20-minute call, then:</p>
     <ol class="rail">
-      <li class="st"><b>Discover</b><span>You send me what you have: a prototype or a pitch, and your plan if you have one. We agree what you want out of it.</span></li>
-      <li class="st"><b>Assess</b><span>I play or read what you’ve sent, and look at it the way a publisher would.</span></li>
-      <li class="st"><b>Recommend</b><span>You get written notes on where you really are, what a publisher will question first and what to fix, plus a 60-minute call.</span></li>
-      <li class="st opt"><b>Support · optional</b><span>Monthly mentoring: two 60-minute calls and messages answered within 48 hours. Cancel any time.</span></li>
+      <li class="st"><b>Discover</b><i class="sum">You send what you have.</i><span>You send me what you have: a prototype or a pitch, and your plan if you have one. We agree what you want out of it.</span></li>
+      <li class="st"><b>Assess</b><i class="sum">I look at it the way a publisher would.</i><span>I play or read what you’ve sent, and look at it the way a publisher would.</span></li>
+      <li class="st"><b>Recommend</b><i class="sum">Written notes and a 60-minute call.</i><span>You get written notes on where you really are, what a publisher will question first and what to fix, plus a 60-minute call.</span></li>
+      <li class="st opt"><b>Support · optional</b><i class="sum">Monthly mentoring, cancel any time.</i><span>Monthly mentoring: two 60-minute calls and messages answered within 48 hours. Cancel any time.</span></li>
     </ol>
     <p class="rail-note">The first three steps are the one-week project assessment. You keep the notes whatever you decide next.</p>
     <h3 class="sub-head">What’s in the notes</h3>
@@ -802,7 +863,7 @@ footer .fine{margin:10px 0 0;font-size:12px;color:#8A9096}
 <!-- ===== FIT ===== -->
 <section class="w sec fit">
   <div class="grid2">
-    <div><h2>Good fit</h2>
+    <div class="open"><h2>Good fit</h2>
       <ul>
         <li>Studios of 8 to 30 with funding, a publisher deal or a pitch coming up</li>
         <li>Indie teams of 2 to 10 preparing a first publisher pitch or demo</li>
@@ -1190,6 +1251,84 @@ document.querySelectorAll('[data-tab]').forEach(function (btn) {
   window.addEventListener('scroll', function () { if (!t) t = setTimeout(sync, 50); }, { passive: true });
   window.addEventListener('resize', sync);
   sync();
+})();
+// Phone layout: accordions, "Read more" and swipe dots follow one breakpoint
+(function () {
+  var mq = window.matchMedia('(max-width: 860px)');
+  var syncs = [];
+
+  function toggle(host, clickEl, ariaEl) {
+    clickEl.addEventListener('click', function (e) {
+      if (!mq.matches || e.target.closest('a, .body')) return;
+      host.classList.toggle('open');
+      ariaEl.setAttribute('aria-expanded', host.classList.contains('open') ? 'true' : 'false');
+    });
+    ariaEl.addEventListener('keydown', function (e) {
+      if (!mq.matches || (e.key !== 'Enter' && e.key !== ' ')) return;
+      e.preventDefault();
+      clickEl.click();
+    });
+    syncs.push(function () {
+      if (mq.matches) {
+        ariaEl.setAttribute('role', 'button');
+        ariaEl.tabIndex = 0;
+        ariaEl.setAttribute('aria-expanded', host.classList.contains('open') ? 'true' : 'false');
+      } else {
+        ariaEl.removeAttribute('role');
+        ariaEl.removeAttribute('tabindex');
+        ariaEl.removeAttribute('aria-expanded');
+      }
+    });
+  }
+
+  document.querySelectorAll('.offer').forEach(function (o) { toggle(o, o, o.firstElementChild); });
+  document.querySelectorAll('.st').forEach(function (o) { toggle(o, o, o); });
+  document.querySelectorAll('.fit .grid2 > div').forEach(function (o) { toggle(o, o.querySelector('h2'), o.querySelector('h2')); });
+
+  var about = document.querySelector('.about');
+  if (about) {
+    var more = document.createElement('button');
+    more.type = 'button';
+    more.className = 'about-more';
+    more.textContent = 'Read more';
+    more.setAttribute('aria-expanded', 'false');
+    about.querySelector('.about-rest').after(more);
+    more.addEventListener('click', function () {
+      var open = about.classList.toggle('collapsed') === false;
+      more.textContent = open ? 'Show less' : 'Read more';
+      more.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    syncs.push(function () {
+      about.classList.toggle('collapsed', mq.matches);
+      more.textContent = 'Read more';
+      more.setAttribute('aria-expanded', 'false');
+    });
+  }
+
+  document.querySelectorAll('.swipe').forEach(function (row) {
+    var n = row.children.length;
+    var dots = document.createElement('div');
+    dots.className = 'swipe-dots';
+    dots.setAttribute('aria-hidden', 'true');
+    for (var i = 0; i < n; i++) dots.appendChild(document.createElement('s'));
+    row.after(dots);
+    function paint() {
+      var first = row.children[0];
+      var step = first.offsetWidth + 12;
+      var idx = step > 12 ? Math.min(n - 1, Math.round(row.scrollLeft / step)) : 0;
+      Array.prototype.forEach.call(dots.children, function (d, k) { d.className = k === idx ? 'on' : ''; });
+    }
+    row.addEventListener('scroll', paint, { passive: true });
+    paint();
+    syncs.push(function () {
+      if (mq.matches) { row.tabIndex = 0; row.setAttribute('role', 'region'); row.setAttribute('aria-label', 'Swipe sideways for more'); }
+      else { row.removeAttribute('tabindex'); row.removeAttribute('role'); row.removeAttribute('aria-label'); }
+    });
+  });
+
+  function syncAll() { syncs.forEach(function (f) { f(); }); }
+  syncAll();
+  if (mq.addEventListener) mq.addEventListener('change', syncAll); else mq.addListener(syncAll);
 })();
 </script>
 </body>
