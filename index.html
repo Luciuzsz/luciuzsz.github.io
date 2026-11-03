@@ -58,7 +58,7 @@ p,li,figcaption,summary{text-wrap:balance}
 .dark .kicker{color:var(--accent-light)}
 .sec{padding-top:var(--section)}
 .sec h2{font-size:clamp(30px,3.6vw,46px);max-width:780px;margin-bottom:28px}
-.btn{display:inline-flex;align-items:center;min-height:56px;padding:16px 30px;font-size:17px;border-radius:8px;font-weight:600;text-decoration:none;transition:filter .15s,transform .15s}
+.btn{display:inline-flex;align-items:center;justify-content:center;text-align:center;min-height:56px;padding:16px 30px;font-size:17px;border-radius:8px;font-weight:600;text-decoration:none;transition:filter .15s,transform .15s}
 .btn-main{background:var(--accent);color:var(--white)}
 .btn-line{border:1.5px solid var(--paper);color:var(--paper)}
 .btn:hover{filter:brightness(1.08);transform:translateY(-1px)}
@@ -70,7 +70,7 @@ header{display:flex;justify-content:space-between;align-items:center;gap:16px;ma
 nav{display:flex;gap:36px;align-items:center;font-size:19px;font-weight:500}
 nav a{text-decoration:none}
 nav a:not(.pill):hover{color:var(--accent-light)}
-nav .pill{background:var(--accent);color:var(--white);font-weight:600;padding:15px 28px;border-radius:8px;transition:filter .15s}
+nav .pill{background:var(--accent);color:var(--white);font-weight:600;padding:15px 28px;border-radius:8px;white-space:nowrap;text-align:center;transition:filter .15s}
 nav .pill:hover{filter:brightness(1.08)}
 
 /* hero */
@@ -181,23 +181,27 @@ dialog.story{width:min(760px,calc(100% - 32px));max-height:calc(100dvh - 48px);p
 dialog.story::backdrop{background:rgba(17,20,24,.65)}
 .story .card{border:0;border-radius:0;box-shadow:none;transform:none}
 .story .card{display:grid;grid-template-columns:240px 1fr;column-gap:28px;align-items:start;padding:28px}
-.story .card .pic{grid-column:1;grid-row:1/4;padding:0;border:1px solid var(--line);border-radius:8px}
+.story .card .pic{grid-column:1;grid-row:1/5;padding:0;border:1px solid var(--line);border-radius:8px}
 .story .card .meta,.story .card h3,.story .card .hook{grid-column:2;margin-right:40px}
 .story .card .meta{margin-top:0;margin-left:0}
 .story .card h3{margin-left:0;font-size:26px}
 .story .card .hook{flex:none;font-size:17px;margin-left:0;margin-top:8px}
+.story .card .story-cta{grid-column:2;margin-top:16px}
+.story .pic .play{position:absolute;inset:0;display:grid;place-items:center;background:rgba(13,16,19,.22);transition:background .15s}
+.story .pic .play:hover{background:rgba(13,16,19,.42)}
+.story .pic .play svg{width:52px;height:52px;padding:14px;border-radius:50%;background:var(--accent);color:var(--white)}
 .story .full{grid-column:1/-1;margin:24px 0 0;max-width:68ch;display:flex;flex-direction:column;gap:14px;font-size:17px;line-height:1.6;color:var(--text)}
 .story .full p{margin:0}
-.story .full a{display:inline-flex;align-items:center;gap:8px;min-height:48px;padding:12px 22px;border-radius:8px;background:var(--accent);color:var(--white);font-weight:600;text-decoration:none;transition:filter .15s,transform .15s}
-.story .full a::after{content:"\2197"}
-.story .full a:hover{filter:brightness(1.08);transform:translateY(-1px)}
+.story .story-cta a{display:inline-flex;align-items:center;gap:8px;min-height:48px;padding:12px 22px;border-radius:8px;background:var(--accent);color:var(--white);font-weight:600;text-decoration:none;transition:filter .15s,transform .15s}
+.story .story-cta a::after{content:"\2197"}
+.story .story-cta a:hover{filter:brightness(1.08);transform:translateY(-1px)}
 .story .full b{color:var(--ink)}
 .story .close{position:absolute;top:14px;right:14px;z-index:2;width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:var(--paper);color:var(--ink);font-size:22px;line-height:1;cursor:pointer}
 .story .close:hover{background:var(--ink);color:var(--paper)}
 @media (max-width:560px){
   .story .card{grid-template-columns:1fr;padding:20px}
   .story .card .pic{grid-column:1;grid-row:auto;max-width:240px;margin-bottom:16px}
-  .story .card .meta,.story .card h3,.story .card .hook{grid-column:1}
+  .story .card .meta,.story .card h3,.story .card .hook,.story .card .story-cta{grid-column:1}
 }
 
 /* proof, steps, fit */
@@ -224,6 +228,7 @@ dialog.story::backdrop{background:rgba(17,20,24,.65)}
 .contact{padding-top:var(--section);padding-bottom:var(--section)}
 .contact h2{font-size:clamp(32px,4.5vw,54px);line-height:1.05;max-width:900px}
 .contact .links{margin:28px 0 0}
+.contact .links .copy{padding:0;background:none;border:0;font:inherit;color:inherit;text-decoration:underline;cursor:pointer}
 footer{border-top:1px solid var(--line-dark)}
 footer .w{padding-top:24px;padding-bottom:24px;font-size:13px;color:#A3A8AE}
 
@@ -255,6 +260,8 @@ footer .fine{margin:10px 0 0;font-size:12px;color:#8A9096}
 /* phones */
 @media (max-width:860px){
   nav .hide{display:none}
+  .logo{font-size:26px}
+  nav .pill{padding:12px 18px;font-size:16px}
   .hero{grid-template-columns:1fr}
   .hero .stats{grid-template-columns:1fr 1fr;gap:20px}
   .hero .stats-label{margin-top:32px}
@@ -267,6 +274,9 @@ footer .fine{margin:10px 0 0;font-size:12px;color:#8A9096}
   .offer{padding:24px}
   .about{grid-template-columns:1fr}
   .strip .row{grid-template-columns:1fr}
+  .cta-band{flex-direction:column;align-items:stretch;text-align:center;padding:24px 20px}
+  .cta-band p{max-width:none}
+  .cta-band .btn{justify-content:center;padding-left:12px;padding-right:12px}
 }
 </style>
 </head>
@@ -637,7 +647,7 @@ footer .fine{margin:10px 0 0;font-size:12px;color:#8A9096}
       <a class="btn btn-main" href="mailto:savcic.andrej@gmail.com?subject=Free%2020-minute%20call">Book a free 20-minute call</a>
       <a class="btn btn-line" href="mailto:savcic.andrej@gmail.com?subject=Project%20assessment">Ask about an assessment</a>
     </div>
-    <p class="links"><a href="mailto:savcic.andrej@gmail.com">savcic.andrej@gmail.com</a> · <a href="https://linkedin.com/in/andrej-savcic">LinkedIn</a></p>
+    <p class="links"><a href="mailto:savcic.andrej@gmail.com">savcic.andrej@gmail.com</a> · <a href="https://mail.google.com/mail/?view=cm&amp;to=savcic.andrej@gmail.com&amp;su=Free%2020-minute%20call" target="_blank" rel="noopener">Open in Gmail</a> · <button type="button" class="copy" data-copy="savcic.andrej@gmail.com">Copy address</button> · <a href="https://linkedin.com/in/andrej-savcic">LinkedIn</a></p>
   </div>
   <footer><div class="w">Andrej Savcic · games production consulting · <a href="mailto:savcic.andrej@gmail.com">savcic.andrej@gmail.com</a> · <a href="https://linkedin.com/in/andrej-savcic">LinkedIn</a>
     <p class="fine">Client names refer to work delivered while employed by the studios listed above and are shown for reference only.</p></div></footer>
@@ -768,7 +778,28 @@ footer .fine{margin:10px 0 0;font-size:12px;color:#8A9096}
       var copy = card.cloneNode(true);
       copy.removeChild(copy.querySelector('.more'));
       copy.appendChild(full.cloneNode(true));
-      copy.querySelectorAll('.full a').forEach(function (l) { l.target = '_blank'; l.rel = 'noopener'; });
+      var link = copy.querySelector('.full a');
+      if (link) {
+        link.target = '_blank';
+        link.rel = 'noopener';
+        var cta = document.createElement('div');
+        cta.className = 'story-cta';
+        var holder = link.parentElement;
+        cta.appendChild(link);
+        if (holder && holder.tagName === 'P' && !holder.textContent.trim()) holder.remove();
+        copy.insertBefore(cta, copy.querySelector('.full'));
+        if (/^watch/i.test(link.textContent)) {
+          var play = document.createElement('a');
+          play.className = 'play';
+          play.href = link.href;
+          play.target = '_blank';
+          play.rel = 'noopener';
+          play.setAttribute('aria-label', link.textContent.trim());
+          play.setAttribute('tabindex', '-1');
+          play.innerHTML = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>';
+          copy.querySelector('.pic').appendChild(play);
+        }
+      }
       body.innerHTML = '';
       body.appendChild(copy);
       dlg.setAttribute('aria-label', card.querySelector('h3').textContent);
@@ -805,6 +836,22 @@ document.querySelectorAll('[data-pick]').forEach(function (a) {
     if (!timer) timer = setTimeout(sync, 60);
   }, { passive: true });
 })();
+
+// Copy the email address (falls back to selecting it)
+document.querySelectorAll('[data-copy]').forEach(function (b) {
+  var label = b.textContent;
+  b.addEventListener('click', function () {
+    function done(ok) {
+      b.textContent = ok ? 'Copied' : 'Press Ctrl+C to copy';
+      setTimeout(function () { b.textContent = label; }, 2200);
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(b.dataset.copy).then(function () { done(true); }, function () { done(false); });
+    } else {
+      done(false);
+    }
+  });
+});
 
 // Studio / indie tabs
 document.querySelectorAll('[data-tab]').forEach(function (btn) {
