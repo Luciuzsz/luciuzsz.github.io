@@ -275,6 +275,24 @@ dialog.mail::backdrop{background:rgba(17,20,24,.65)}
 footer a{color:inherit}
 footer .fine{margin:10px 0 0;font-size:12px;color:#8A9096}
 
+.lead{max-width:780px;margin:-8px 0 36px;font-size:18px;color:var(--text)}
+.sub-head{font-size:clamp(22px,2.4vw,28px);margin:56px 0 20px}
+.steps-line{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:16px}
+.steps-line li{display:grid;grid-template-columns:120px 1fr;gap:8px 24px;align-items:baseline;padding:22px 28px;background:var(--white);border:1px solid var(--line);border-radius:var(--radius)}
+.steps-line b{font-family:var(--mono);font-size:13px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+.steps-line span{color:var(--text)}
+#process-more{margin-top:24px}
+.item.report{margin-bottom:0}
+.checks{margin:12px 0 0;padding-left:20px;display:flex;flex-direction:column;gap:10px;color:var(--text)}
+.checks li::marker{color:var(--accent)}
+.faq{display:flex;flex-direction:column;gap:12px;max-width:860px}
+.faq-item{background:var(--white);border:1px solid var(--line);border-radius:var(--radius)}
+.faq-item summary{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 24px;cursor:pointer;list-style:none;font-family:var(--display);font-weight:700;font-size:19px;line-height:1.3}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary::after{content:"+";flex-shrink:0;font-size:26px;line-height:1;color:var(--accent);transition:transform .2s}
+.faq-item[open] summary::after{transform:rotate(45deg)}
+.faq-item p{margin:0;padding:0 24px 22px;max-width:70ch;color:var(--text)}
+
 /* tablets */
 @media (max-width:1100px){
   .work{grid-template-columns:repeat(2,1fr)}
@@ -301,6 +319,7 @@ footer .fine{margin:10px 0 0;font-size:12px;color:#8A9096}
   .offer{padding:24px}
   .about{grid-template-columns:1fr}
   .strip .row{grid-template-columns:1fr}
+  .steps-line li{grid-template-columns:1fr;padding:20px}
   .cta-band{flex-direction:column;align-items:stretch;text-align:center;padding:24px 20px}
   .cta-band p{max-width:none}
   .cta-band .btn{justify-content:center;padding-left:12px;padding-right:12px}
@@ -658,6 +677,60 @@ footer .fine{margin:10px 0 0;font-size:12px;color:#8A9096}
   </ol>
 </section>
 
+<!-- ===== WHAT YOU GET ===== -->
+<section id="process" class="w sec">
+  <p class="kicker">What you get</p>
+  <h2>What happens, week by week.</h2>
+  <p class="lead">Every engagement starts with the same three things written down: what you need, what I’ll deliver, and how we’ll both know it worked.</p>
+  <ul class="grid3">
+    <li class="item"><h3>We agree what success looks like</h3><p>In the first call we write down three outcomes for your project, in your terms. For example: “Milestone 3 accepted by the publisher on 14 March”, “Scope fits the remaining runway”, “Port passes certification on first submission”. Every report and review checks progress against them.</p></li>
+    <li class="item"><h3>You give me access, I do the digging</h3><p>I need the current build, your plan and schedule, your budget, any publisher or licensor agreements, and 45 minutes with each of your leads. Everything stays under NDA. I work in your tools: Jira, Confluence, spreadsheets or whatever you already use.</p></li>
+    <li class="item"><h3>You get decisions, not just observations</h3><p>Each finding comes with an owner, a recommendation and the decision you need to make. You choose what to act on. Creative direction stays with your team.</p></li>
+  </ul>
+  <h3 class="sub-head">The project assessment, step by step</h3>
+  <ol class="steps-line">
+    <li><b>Week 1</b><span>Kick-off call and success outcomes agreed. I play the build, read every document and interview your leads.</span></li>
+    <li><b>Week 2</b><span>I map the plan against the build, the budget and the runway, then write the report.</span></li>
+    <li><b>Day 10</b><span>A 90-minute call to walk through the report with you and your leads. You keep the report whatever you decide next.</span></li>
+  </ol>
+  <button type="button" class="more-toggle" aria-expanded="false" aria-controls="process-more" data-open="Show less">
+    <span>See what’s in the report and how ongoing work runs</span>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+  </button>
+  <div id="process-more" hidden>
+    <div class="item report">
+      <h3>What’s in the report</h3>
+      <ul class="checks">
+        <li>A one-page verdict: where the project really is.</li>
+        <li>The five biggest risks, each with an owner and a recommended response.</li>
+        <li>What to cut, delay or protect to hit your next milestone.</li>
+        <li>A plan to that milestone, with the decisions you need to make and by when.</li>
+        <li>What a publisher, investor or licensor is likely to ask first.</li>
+      </ul>
+    </div>
+    <h3 class="sub-head">Once I’m on the team</h3>
+    <ul class="grid3">
+      <li class="item"><h3>A steady rhythm</h3><p>Live sessions in fixed weekly slots, a short written status note every week, and a risk register your whole team can see.</p></li>
+      <li class="item"><h3>A monthly review</h3><p>Once a month we check progress against the outcomes we agreed. You decide whether to continue, adjust the plan or move to a smaller one.</p></li>
+      <li class="item"><h3>A clean handover</h3><p>Every plan, process and document lives in your tools from day one, so your team owns it when the engagement ends.</p></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section id="faq" class="w sec">
+  <p class="kicker">FAQ</p>
+  <h2>Common questions.</h2>
+  <div class="faq">
+    <details class="faq-item"><summary>How do we measure whether this worked?</summary><p>Against the three outcomes we agree at the start. Each monthly review shows where each one stands, in plain numbers and dates.</p></details>
+    <details class="faq-item"><summary>Will you sign our NDA?</summary><p>Yes, before I see anything. I can also send my own if you’d rather.</p></details>
+    <details class="faq-item"><summary>Do you replace our producer?</summary><p>Producer on call works alongside your producer as senior backup. Embedded producer fills the role when you don’t have one. Either way, your team keeps ownership of the plan.</p></details>
+    <details class="faq-item"><summary>Can you talk to our publisher or licensor?</summary><p>Yes. I can join milestone reviews and approval meetings, and prepare the reporting they expect.</p></details>
+    <details class="faq-item"><summary>How does working across time zones work?</summary><p>Calls are booked in slots that suit Europe, the US and Asia-Pacific, and written updates keep everyone informed between calls.</p></details>
+    <details class="faq-item"><summary>Is there a guarantee?</summary><p>Yes. If the assessment doesn’t tell you something useful, you get your money back.</p></details>
+  </div>
+</section>
+
 <!-- ===== FIT ===== -->
 <section class="w sec fit">
   <div class="grid2">
@@ -951,6 +1024,20 @@ document.querySelectorAll('[data-pick]').forEach(function (a) {
     });
   });
 })();
+
+// "Show more" buttons open and close the panel they control
+document.querySelectorAll('.more-toggle').forEach(function (b) {
+  var panel = document.getElementById(b.getAttribute('aria-controls'));
+  if (!panel) return;
+  var label = b.querySelector('span');
+  var closed = label.textContent, opened = b.dataset.open || 'Show fewer';
+  b.addEventListener('click', function () {
+    var open = b.getAttribute('aria-expanded') === 'true';
+    b.setAttribute('aria-expanded', open ? 'false' : 'true');
+    panel.hidden = open;
+    label.textContent = open ? closed : opened;
+  });
+});
 
 // Studio / indie tabs
 document.querySelectorAll('[data-tab]').forEach(function (btn) {
